@@ -17,12 +17,19 @@ export type linkGroup = {
 	links: dataElem[];
 }
 
+/*
+──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀​▀▀▀▀▀▀▌
+───▄▄██▌█ BEEP BEEP
+▄▄▄▌▐██▌█ GAY PORN DELIVERY
+███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄​▄▄▄▄▄▄▌
+▀(@)▀▀▀▀▀▀▀(@)(@)▀▀▀▀▀▀▀▀▀▀▀▀▀​▀▀▀▀(@)▀
+*/
 export const links: linkGroup[] = [
 	{
 		title: "Reddit",
 		links: [
 			{
-				label: "r/startpages",
+				label: "r/startpages (haha thats u)",
 				value: "https://www.reddit.com/r/startpages/",
 			},
 			{
@@ -36,27 +43,6 @@ export const links: linkGroup[] = [
 			{
 				label: "r/AnimalsBeingDerps (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧",
 				value: "https://www.reddit.com/r/AnimalsBeingDerps/",
-			},
-		]
-	},
-	{
-		title: "Programming",
-		links: [
-			{
-				label: "Github",
-				value: "https://github.com",
-			},
-			{
-				label: "Gitlab",
-				value: "https://gitlab.com",
-			},
-			{
-				label: "Strato",
-				value: "https://www.strato.de/",
-			},
-			{
-				label: "Looks crap bc names short... t(ಠ益ಠt)",
-				value: "/",
 			},
 		]
 	},
@@ -93,8 +79,37 @@ export const links: linkGroup[] = [
 				value: "https://pixlr.com/x/",
 			},
 			{
+				label: "AI Image Enlarger",
+				value: "https://bigjpg.com/en",
+			},
+			{
+				label: "Img to Svg Converter",
+				value: "https://picsvg.com/",
+			},
+			{
 				label: "FontAwesome",
 				value: "https://fontawesome.com/icons",
+			},
+		]
+	},
+	{
+		title: "Music",
+		links: [
+			{
+				label: "i wanna be a cowboy",
+				value: "https://www.youtube.com/watch?v=8zWz92f_HGs",
+			},
+			{
+				label: "let the bodies hit the floor",
+				value: "https://www.youtube.com/watch?v=b--VKaCB9u0",
+			},
+			{
+				label: "Nobody Kanna Cross It",
+				value: "https://www.youtube.com/watch?v=2wqTnwJGvtc",
+			},
+			{
+				label: "Smug Dancin",
+				value: "https://www.youtube.com/watch?v=eNZ9Od1jQ4Q",
 			},
 		]
 	},
@@ -126,8 +141,16 @@ export const links: linkGroup[] = [
 				value: "https://codepen.io/mburakerman/pen/eRZZEv",
 			},
 			{
-				label: "Da real sauce ( ͡° ͜ʖ ͡°)",
-				value: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+				label: "About me t(ಠ益ಠt)",
+				value: "/",
+			},
+			{
+				label: "Da real sauce ԅ(♡﹃♡ԅ)",
+				value: "https://www.youtube.com/watch?v=qr89xoZyE1g",
+			},
+			{
+				label: "Even more real sauce ( ͡° ͜ʖ ͡°)",
+				value: "https://www.youtube.com/watch?v=VLhJOd_TFiI",
 			},
 		]
 	},
