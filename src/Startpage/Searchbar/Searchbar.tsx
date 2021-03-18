@@ -36,12 +36,19 @@ const StyledSearchbar = styled.input`
     }
 `;
 
-const SearchIcon = styled.img`
+const SearchIcon = styled.div<{ src: string }>`
     position: fixed;
     left: 35px;
     bottom: 40px;
     height: 2.9rem;
-    transition: .3s;
+    width: 2.9rem;
+
+    background: var(--default-color);
+    
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url(${({ src }) => src});
+    mask-image: url(${({ src }) => src});
 `;
 
 export const Searchbar = () => {
