@@ -111,6 +111,10 @@ export const links: linkGroup[] = [
 				label: "Smug Dancin",
 				value: "https://www.youtube.com/watch?v=eNZ9Od1jQ4Q",
 			},
+			{
+				label: "Utamaru - The Sanctified Mind Cover",
+				value: "https://www.youtube.com/watch?v=MHlJKLlS07U",
+			},
 		]
 	},
 	{
