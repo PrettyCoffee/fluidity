@@ -1,0 +1,71 @@
+@keyframes circling-shadow {
+    0%{ filter:
+        drop-shadow(-10px -10px 0 var(--accent-color2))
+        drop-shadow(10px 10px 0 var(--accent-color));
+    }
+    25%{ filter:
+        drop-shadow(-10px 10px 0 var(--accent-color2))
+        drop-shadow(10px -10px 0 var(--accent-color));
+    }
+    50%{ filter:
+        drop-shadow(10px 10px 0 var(--accent-color))
+        drop-shadow(-10px -10px 0 var(--accent-color2));
+    }
+    75%{ filter:
+        drop-shadow(10px -10px 0 var(--accent-color))
+        drop-shadow(-10px 10px 0 var(--accent-color2));
+    }
+    100%{ filter:
+        drop-shadow(-10px -10px 0 var(--accent-color2))
+        drop-shadow(10px 10px 0 var(--accent-color));
+    }
+}
+@keyframes circling-shadow-small {
+    0%{ filter:
+        drop-shadow(-5px -5px 0 var(--accent-color2))
+        drop-shadow(5px 5px 0 var(--accent-color));
+    }
+    25%{ filter:
+        drop-shadow(-5px 5px 0 var(--accent-color2))
+        drop-shadow(5px -5px 0 var(--accent-color));
+    }
+    50%{ filter:
+        drop-shadow(5px 5px 0 var(--accent-color))
+        drop-shadow(-5px -5px 0 var(--accent-color2));
+    }
+    75%{ filter:
+        drop-shadow(5px -5px 0 var(--accent-color))
+        drop-shadow(-5px 5px 0 var(--accent-color2));
+    }
+    100%{ filter:
+        drop-shadow(-5px -5px 0 var(--accent-color2))
+        drop-shadow(5px 5px 0 var(--accent-color));
+    }
+}
+
+@keyframes text-flicker {
+    from {
+        text-shadow: 1px 0 0 var(--accent-color), -2px 0 0 var(--accent-color2);
+    }
+    to {
+        text-shadow: 2px 0.5px 2px var(--accent-color), -1px -0.5px 2px var(--accent-color2);
+    }
+}
+
+@keyframes box-flicker {
+    from {
+        filter: drop-shadow(1px 0 0 var(--accent-color)) drop-shadow(-2px 0 0 var(--accent-color2));
+    }
+    to {
+        filter: drop-shadow(2px 0.5px 2px var(--accent-color)) drop-shadow( -1px -0.5px 2px var(--accent-color2));
+    }
+}
+
+@keyframes accordion-hover {
+    0% {
+        clip: rect(9px, 9999px, 99px, 0);
+    }
+    100% {
+        clip: rect(9px, 9999px, 99px, 0);
+   }
+}
