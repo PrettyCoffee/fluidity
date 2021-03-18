@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { faPaintRoller } from '@fortawesome/free-solid-svg-icons'
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import styled from '@emotion/styled';
@@ -8,23 +8,21 @@ import { SettingsWindow } from "./SettingsWindow/SettingsWindow";
 const SettingsPopupToggle = styled.button`
 	position: fixed;
 	top: 20px;
-	right:-45px;
-
-	padding: 10px 15px 10px 30px;
+	right:20px;
 	font-size: 20px;
-    border: none;
-	border-radius: var(--border-radius);
-	background-color: var(--default-color);
-	color: var(--bg-color);
+
+	color: var(--default-color);
+    background-color:transparent;
+    border:none;
 	opacity: 0.3;
 
 	cursor: pointer;
 	transition: .3s;
 
     :hover{
-        opacity: 1;
-        right:-5px;
-        padding: 10px 30px 10px 15px;
+        opacity: .5;
+        color: var(--accent-color2);
+        animation:box-flicker 0.01s ease 0s infinite alternate;
     }
     :focus{
         outline: none;
@@ -61,7 +59,7 @@ export const Settings = () => {
     return (
         <>
             <SettingsPopupToggle onClick={() => setShowSettings(true)}>
-                <FontAwesomeIcon icon={faPaintRoller} />
+                <FontAwesomeIcon icon={faSlidersH} />
             </SettingsPopupToggle>
             {showSettings && (
                 <SettingsWrapper>
