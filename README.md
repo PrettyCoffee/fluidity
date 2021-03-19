@@ -10,4 +10,4 @@ If you want to use it, you have 2 options:
 
 * You could just use [my hosted](https://prettycoffee.github.io/startpage/) version.
 
-* If you want your own copy, head to the `/static/js/runtime-main.ae06b328.js` file and search for `/startpage/`. Replace it with `./` and you should be fine :)
+* If you want your own copy, head to the `gh-pages` branch, download its contents, replace the string `/startpage/` in the `/static/js/runtime-main.ae06b328.js` file with `./` and you should be fine :)
