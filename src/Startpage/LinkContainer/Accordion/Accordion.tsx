@@ -35,89 +35,10 @@ const AccordionContent = styled.div< { width: number }>`
     overflow: hidden;
     transition:.3s;
 `;
-/*altAccordionTitleWrapper
-const altAccordionTitleWrapper = styled.div< { active: boolean }>`
-    height: 100%;
-    width: 90px;
-    background-color: var(--accent-color2);
-    cursor: ${({ active }) =>
-        active ? "default" : "pointer"
-    };
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    position: relative;
-    ::before {
-        content: "";
-        position: absolute;
-        bottom: 0px;
-        width: 100%;
-        height: ${({ active }) => active ? "390px" : "0"};
-        background-color: var(--accent-color);
-        transition:  ${({ active }) => active ? "1s" : ".5s"};
-    }
-    :hover{
-        ${({ active }) => !active && `
-            ::before {
-                height: 50%;
-            }
-            > .wave {
-                top: 180px;
-                ::before{
-                    animation: wave 12s infinite cubic-bezier(0.71, 0.33, 0.33, 0.68);
-                    top: -25%;
-                    left: 50%;
-                }
-            }
-        `}
-    }
-
-   > .wave {
-        width: 90px;
-        height: 50px;
-        position: absolute;
-        top: ${({ active }) => active ? "0px" : "350px"};
-        overflow: hidden;
-        transition:  ${({ active }) => active ? "1s" : ".5s"};
-        ::before{
-            content:"";
-            width: 180px;
-            height: 185px;
-            position: absolute;
-            top: -25%;
-            left: 50%;
-            margin-left: -90px;
-            margin-top: -140px;
-            border-radius: 37%;
-            background: var(--accent-color2);
-            animation: wave 12s infinite cubic-bezier(0.71, 0.33, 0.33, 0.68);
-        }
-        @keyframes wave {
-            from { transform: rotate(0deg);}
-            from { transform: rotate(360deg);}
-        }
-    }
-
-    ${({ active }) =>
-        !active && `
-        :hover{
-            > * {
-                text-shadow:
-                    4px 0px 0 var(--accent-color),
-                    3px 0px 0 var(--accent-color),
-                    2px 0px 0 var(--accent-color),
-                    1px 0px 0 var(--accent-color);
-            }
-        }
-    `
-    };
-`;
-*/
 
 const AccordionTitleWrapper = styled.div< { active: boolean }>`
-border: 4px solid var(--accent-color);
-    height: 100%;
+    border: 4px solid var(--accent-color);
+    height: calc(100% - 8px);
     width: 90px;
     cursor: ${({ active }) =>
         active ? "default" : "pointer"
