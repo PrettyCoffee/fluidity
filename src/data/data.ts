@@ -87,8 +87,12 @@ export const links: linkGroup[] = [
 				value: "https://picsvg.com/",
 			},
 			{
-				label: "FontAwesome",
-				value: "https://fontawesome.com/icons",
+				label: "Affinity",
+				value: "https://affinity.serif.com/en-us/tutorials/designer/desktop/",
+			},
+			{
+				label: "Affinity - YT",
+				value: "https://www.youtube.com/c/AffinityRevolution/playlists",
 			},
 		]
 	},
@@ -196,3 +200,12 @@ export const colors: colorsType = {
 	"--accent-color": "rgb(255, 180, 230)",
 	"--accent-color2": "rgb(180, 255, 230)",
 }
+/*
+https://i.pinimg.com/originals/16/74/db/1674dbae45cd38f3d3b4c00dc8616bd7.gif
+export const colors: colorsType = {
+	"--bg-color": "#32323C",
+	"--default-color": "#A0A08C",
+	"--accent-color": "#9A6650",
+	"--accent-color2": "#461E28",
+}
+*/
