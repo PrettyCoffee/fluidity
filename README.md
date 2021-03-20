@@ -10,8 +10,8 @@ I created a [reddit post](https://www.reddit.com/r/startpages/comments/m82izg/my
 You can also just take a look at the [Live Demo](https://prettycoffee.github.io/startpage/).
 
 ### Themes
-![Default theme](\docs\default-theme.png)
-![Dark Souls theme](\docs\DarkSouls-theme.png)
+![Default theme](https://github.com/PrettyCoffee/startpage/blob/main/docs/default-theme.png)
+![Dark Souls theme](https://github.com/PrettyCoffee/startpage/blob/main/docs/DarkSouls-theme.png)
 **If you created a theme and want to see it here, hit me up!**
 
 ## Usage
