@@ -1,13 +1,58 @@
-One browser startpage I created
+# Fluidity - An accordion based startpage
+Here you can find the startpage I created for my browser :)
 
-If you have any problems or miss a feature, create an issue and I will take a look at it :)
+If you have any problems or miss a feature, create an issue and I will take a look at it! Of course, if you want to add a feature yourself you can just create a fork and contribute ;)
 
-I will append this page soon.
+## Showcase
+### The startpage in action
+I created a [reddit post](https://www.reddit.com/r/startpages/comments/m82izg/my_new_startpage_any_ideas_for_names/) on r/startpages. There you can see a short video where I show all available features.
+
+You can also just take a look at the [Live Demo](https://prettycoffee.github.io/startpage/).
+
+### Themes
+![Default theme](\docs\default-theme.png)
+![Dark Souls theme](\docs\DarkSouls-theme.png)
+**If you created a theme and want to see it here, hit me up!**
 
 ## Usage
-The startpage is expecting to be hosted at {host}/startpage.
-If you want to use it, you have 2 options:
+You can apply startpages by using several methods. To keep it simple, I will only cover one (the easiest) here:
+1. Download a New Tab Override Plugin (e.g. [Chrome](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/))
+1. Open the Plugins Settings
+1. Paste `https://prettycoffee.github.io/startpage/` into the text field to set it up as your startpage
 
-* You could just use [my hosted](https://prettycoffee.github.io/startpage/) version.
+## Local Setup
+If you do not want to rely on my github page, thats totally okay!
+You can set it up locally yourself with the following steps:
+1. Switch into the gh-pages branch
+1. Download / Clone the repository files
+1. Replace all occurences of `/startpage/` with `./` in the `/index.html` file 
+1. Set it up like explained in [usage](#usage), but instead of the link use the filepath to the `/index.html` file.
 
-* If you want your own copy, head to the `gh-pages` branch, download its contents, replace the string `/startpage/` in the `/static/js/runtime-main.ae06b328.js` file with `./` and you should be fine :)
+If you have a github account you can of course also just fork the repo and create a github page yourself ;)
+
+## Advanced: Changing the code
+Since this project is programmed with React and TypeScript, you will first need to set it up:
+
+0. (Download and install [nodejs](https://nodejs.org/en/) if you dont have it)
+1. Clone the git repository, this time use the main branch
+1. Go into the `/package.json` file and replace 
+    ```
+    "homepage": "https://prettycoffee.github.io/startpage/"
+    ```
+    with 
+    ```
+    "homepage": "./"
+    ```
+1. Open a terminal in the project folder (If you execute the command `ls` here, there should be a package.json)
+1. Execute `npm i` to install all dependencies
+1. Execute `npm run start` to validate that everything ids working. A browser tab with the URL `http://localhost:3000` and the startpage should open.
+1. Now you can change the code, for example write your own default values into `/src/data/data.ts`
+1. Compile the project by executing `npm run build` if everything is done
+1. Your startpage is now located in the `/build/` folder
+
+## Sources
+
+* [Pictures - DeathAndMilk](https://www.instagram.com/deathandmilk_/)
+* [Icons - FontAwesome](https://fontawesome.com/icons)
+* [Text Flicker - CodeMyUI](https://codemyui.com/crt-screen-text-flicker-animation-in-pure-css/)
+* [Wave Animation - mburakerman](https://codepen.io/mburakerman/pen/eRZZEv)
