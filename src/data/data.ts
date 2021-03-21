@@ -29,7 +29,7 @@ export const links: linkGroup[] = [
 		title: "Reddit",
 		links: [
 			{
-				label: "r/startpages (haha thats u)",
+				label: "r/startpages",
 				value: "https://www.reddit.com/r/startpages/",
 			},
 			{
@@ -41,7 +41,7 @@ export const links: linkGroup[] = [
 				value: "https://www.reddit.com/r/rainmeter/",
 			},
 			{
-				label: "r/AnimalsBeingDerps (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧",
+				label: "r/AnimalsBeingDerps",
 				value: "https://www.reddit.com/r/AnimalsBeingDerps/",
 			},
 		]
@@ -200,12 +200,21 @@ export const colors: colorsType = {
 	"--accent-color": "rgb(255, 180, 230)",
 	"--accent-color2": "rgb(180, 255, 230)",
 }
-/*
+/* DarkSouls Theme
 https://i.pinimg.com/originals/16/74/db/1674dbae45cd38f3d3b4c00dc8616bd7.gif
 export const colors: colorsType = {
 	"--bg-color": "#32323C",
 	"--default-color": "#A0A08C",
 	"--accent-color": "#9A6650",
 	"--accent-color2": "#461E28",
+}
+*/
+/* Pop!OS Theme
+https://oswallpapers.com/wp-content/uploads/2019/04/kate-hazen-unleash-your-robot.jpg
+export const colors: colorsType = {
+	"--bg-color": "#333136",
+	"--default-color": "#2BC5EB",
+	"--accent-color": "#FCD307",
+	"--accent-color2": "#2BC5EB",
 }
 */

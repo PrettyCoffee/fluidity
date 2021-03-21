@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as settingsHandler from "../Settings/settingsHandler";
 
 import google from "../../data/pictures/google.svg";
