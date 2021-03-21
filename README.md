@@ -50,6 +50,7 @@ Since this project is programmed with React and TypeScript, you will first need 
 1. Now you can change the code, for example write your own default values into `/src/data/data.ts`
 1. Compile the project by executing `npm run build` if everything is done
 1. Your startpage is now located in the `/build/` folder
+1. Optional: If you host it with github pages yourself, you can use the command `npm run deploy` to push a fresh build into the gh-pages branch
 
 ## Sources
 
