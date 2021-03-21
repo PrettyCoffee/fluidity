@@ -1,3 +1,5 @@
+![logo](https://github.com/PrettyCoffee/startpage/blob/main/public/logo192.png)
+
 # Fluidity - An accordion based startpage
 Here you can find the startpage I created for my browser :)
 

@@ -1,5 +1,6 @@
 {
-  "name": "startpage",
+  "name": "fluidity",
+  "description": "An accordion based startpage.",
   "version": "0.0.1",
   "private": true,
   "homepage": "https://prettycoffee.github.io/startpage/",

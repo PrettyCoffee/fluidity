@@ -1,11 +1,18 @@
 {
 	"manifest_version": 2,
-	"name": "b/w kitty",
-	"description": "b/w kitty startpage",
-	"version": "1.0",
-	"permissions" : ["management", "history", "storage"],
+	"name": "Fluidity",
+	"description": "An accordion based browser startpage.",
+	"developer": {
+		"name": "PrettyCoffee",
+		"url": "https://prettycoffee.github.io"
+	},
+	"permissions": [
+		"management",
+		"history",
+		"storage"
+	],
 	"content_security_policy": "script-src 'self' 'sha256-xuejLQ29qZc344LEr80Z2fLQc/Q/4XaQRaIDtWFnz2Y='; object-src 'self'",
 	"chrome_url_overrides": {
-		"newtab":"./index.html"
-  	}
+		"newtab": "./index.html"
+	}
 }
