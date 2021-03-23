@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 
 import { SettingElement, StyledSettingsContent } from "../SettingsWindow"
 import { OptionSlider } from "../OptionSlider"

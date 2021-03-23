@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 
-import * as Settings from "../settingsHandler";
 import { IconButton } from "./IconButton";
 
 const SliderWrapper = styled.div`

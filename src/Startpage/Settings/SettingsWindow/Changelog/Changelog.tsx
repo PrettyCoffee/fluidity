@@ -26,7 +26,7 @@ const StyledVersion = styled.div`
 export const Changelog = () => {
     return (
         <ChangelogWrapper>
-            <img src={logo} />
+            <img src={logo} alt="logo" />
             <h1>Changelog</h1>
             { changelog.map((version: ChangelogVersion) => <Version {...version} />)}
         </ChangelogWrapper>)

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import * as Settings from "../settingsHandler";
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { IconButton } from "./IconButton";
 
