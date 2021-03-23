@@ -11,19 +11,20 @@ body {
  *   	  Fonts 		  *
  ********************/
 @font-face {
-	font-family: 'Fira Code Light';
+	font-family: 'Fira Code';
 	font-style: normal;
-	font-weight: normal;
-	src: local('Fira Code Light'), url('./FiraCode-Light.woff') format('woff');
+	font-weight: 300;
+	src: local('Fira Code'), url('./FiraCode-Light.woff') format('woff');
 }
 @font-face {
-	font-family: 'Futura LT Light';
+	font-family: 'Fira Code';
 	font-style: normal;
-	font-weight: normal;
-	src: local('Futura LT Light'), url('./FuturaLTLight.woff') format('woff');
+	font-weight: 500;
+	src: local('Fira Code'), url('./FiraCode-Regular.woff') format('woff');
 }
 body * {
-	font-family: "Fira Code Light";
+	font-family: "Fira Code";
+	font-weight: 300;
 }
 
 /********************

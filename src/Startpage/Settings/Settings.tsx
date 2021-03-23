@@ -63,7 +63,7 @@ export const Settings = () => {
             </SettingsPopupToggle>
             {showSettings && (
                 <SettingsWrapper>
-                    <PopupCover onClick={() => hidePopup()} />
+                    <PopupCover onClick={() => {/*hidePopup()*/ }} />
                     <SettingsWindow hidePopup={hidePopup} />
                 </SettingsWrapper>
             )}

@@ -8,14 +8,14 @@ import * as Settings from "./Startpage/Settings/settingsHandler"
 const App = () => {
 
 	//Apply colors
-	const colorSettings = Settings.getValue("colors");
-	if (colorSettings) {
-		var root = document.documentElement;
-		const parsedColorSettings = JSON.parse(colorSettings);
-		Object.keys(parsedColorSettings).forEach(key => {
-			root.style.setProperty(key, parsedColorSettings[key]);
-		});
-	}
+	var root = document.documentElement;
+	try {
+		const colors = Settings.Design.get()?.colors;
+		if (colors)
+			Object.keys(colors).forEach(key => {
+				root.style.setProperty(key, colors[key]);
+			});
+	} catch { }
 
 	return <Startpage />;
 }

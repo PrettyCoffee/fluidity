@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { faTimes, faSyncAlt, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faTrash, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 
 import * as Settings from "../settingsHandler";
-import { OptionSlider } from "./OptionSlider";
-import { OptionTextInput } from "./OptionTextInput";
-import { OptionTextArea } from "./OptionTextArea";
-import { searchEngines, images, links, colors } from "../../../data/data";
+import { links, themes, searchSettings as defaultSearchSettings } from "../../../data/data";
 import { IconButton } from "./IconButton";
-import { ColorPicker } from './ColorPicker';
+
+import { GeneralSettings } from "./GeneralSettings/GeneralSettings"
+import { DesignSettings } from "./DesignSettings/DesignSettings"
+import { Changelog } from "./Changelog/Changelog"
 
 const StyledSettingsWindow = styled.div`
     background-color: var(--bg-color);
@@ -18,24 +18,39 @@ const StyledSettingsWindow = styled.div`
     height: 100%;
     padding: 60px 30px 30px 30px;
     box-shadow: 10px 10px 0px var(--accent-color);
-    animation-fill-mode: both;
+`;
+const WindowContent = styled.div`
+    width: 100%;
+    height: calc(100% - 80px);
     display:flex;
-
-    ::before{
-        content:"Settings";
-        color: var(--bg-color);
-        padding: 5px 0 0 10px;
-        background-color: var(--default-color);
-        width:calc(100% - 10px);
-        height: 25px;
-        position:absolute;
-        z-index:10;
-        left:0;
-        top:0;
-    }
 `;
 
-const StyledSettingsContent = styled.div`
+const WindowHeader = styled.div`
+    ::before{
+        content:"Settings";
+        margin: 5px 20px 0 10px;
+    }
+    color: var(--bg-color);
+    background-color: var(--default-color);
+    width:100%;
+    height: 32px;
+    position:absolute;
+    left:0;
+    top:0;
+    display:flex;
+    justify-content: space-between;
+`;
+
+const WindowFooter = styled.div`
+    display:flex;
+    justify-content: space-between;
+    position:absolute;
+    left:30px;
+    right:30px;
+    bottom:30px;
+`;
+
+export const StyledSettingsContent = styled.div`
     background-color: var(--bg-color);
     width:400px;
     height:100%;
@@ -44,7 +59,7 @@ const StyledSettingsContent = styled.div`
     overflow-y: auto;
 `;
 
-const SettingElement = styled.div`
+export const SettingElement = styled.div`
     background-color: var(--bg-color);
     position: relative;
     padding: 10px 0px;
@@ -54,16 +69,13 @@ const SettingElement = styled.div`
 `;
 
 const CloseButton = styled(IconButton)`
-    position: absolute;
-    right:0px;
-    top:0px;
     z-index:15;
     height:30px;
     opacity: 1;
     padding:0;
 `;
 
-const SettingsButton = styled(IconButton)`
+export const SettingsButton = styled(IconButton)`
     background-color: var(--default-color);
     color: var(--bg-color);
     font-size: 1rem;
@@ -73,78 +85,131 @@ const SettingsButton = styled(IconButton)`
     }
 `;
 
-const ImagePreview = styled.img`
-    margin: 10px 80px; 
-    height:200px;
-    width:200px;
-    border: 1px solid var(--default-color);
-    padding: 5px;
-    object-fit:cover;
+const Tabbar = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`;
 
-    animation:circling-shadow-small 4s ease 0s infinite normal;
+const TabOption = styled.button<{ active: boolean }>`
+    font-size: 1rem;
+    font-weight: 500;
+    transition: .3s;
+    height: 100%;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: ${({ active }) => active ? "default" : "pointer"};
+    ${({ active }) => active && "text-shadow: var(--text-shadow-downwards)"};
+    :hover {
+        text-shadow: var(--text-shadow-downwards);
+    }
 `;
 
 type props = {
     hidePopup: () => void;
 }
 
-export const SettingsWindow = ({ hidePopup }: props) => {
-    const [newColors, setNewColors] = useState(Settings.getValue("colors") || JSON.stringify(colors));
-    const [linkGroups, setLinkGroups] = useState(Settings.getValue("link-groups") || JSON.stringify(links, null, 4));
-    const [image, setImage] = useState(Settings.getValue("image") || images[0].value);
-    const [searchEngine, setSearchEngine] = useState(Settings.getValue("search-engine") || searchEngines[0].value);
+const TabOptions = [
+    "General",
+    "Appearance",
+    "Changelog",
+]
 
-    const setStorageValue = (settingsKey: string, value: any) => {
-        Settings.setValue(settingsKey, value);
-    }
+export const SettingsWindow = ({ hidePopup }: props) => {
+    const [design, setDesign] = useState(themes[0]);
+    const [currentTab, setCurrentTab] = useState(TabOptions[0]);
+    const [linkGroups, setLinkGroups] = useState(links);
+    const [searchSettings, setSearchSettings] = useState(defaultSearchSettings);
+
+    useEffect(() => {
+        try {
+            const lsSearchSettings = Settings.Search.get();
+            if (lsSearchSettings)
+                setSearchSettings(lsSearchSettings);
+        } catch { console.error("Your currently applied search settings appear to be corrupted.") }
+
+        try {
+            const lsDesign = Settings.Design.get();
+            if (lsDesign)
+                setDesign(lsDesign);
+        } catch { console.error("Your currently applied design appears to be corrupted.") }
+
+        try {
+            const lsLinkGroups = Settings.Links.get();
+            if (lsLinkGroups)
+                setLinkGroups(lsLinkGroups);
+        } catch { console.error("Your currently applied links appear to be corrupted.") }
+    }, []);
+
     const applyValues = () => {
-        setStorageValue("image", image);
-        setStorageValue("search-engine", searchEngine);
-        setStorageValue("colors", newColors);
-        setStorageValue("link-groups", linkGroups);
-        window.location.reload(false)
+        Settings.Design.set(design);
+        Settings.Search.set(searchSettings);
+        Settings.Links.set(linkGroups);
+        window.location.reload(false);
     };
 
     return (
         <StyledSettingsWindow>
-            <CloseButton
-                inverted={true}
-                onClick={() => hidePopup()}
-                icon={faTimes}
-            />
-            <StyledSettingsContent>
-                <SettingElement>
-                    <OptionSlider settingsKey={"search-engine"} values={searchEngines} onChange={setSearchEngine} />
-                </SettingElement>
-                <SettingElement>
-                    <OptionSlider settingsKey={"image"} values={images} onChange={setImage} />
-                </SettingElement>
-                <SettingElement>
-                    <OptionTextInput settingsKey={"image"} onChange={setImage} />
-                </SettingElement>
-                <SettingElement>
-                    <ImagePreview src={image} />
-                </SettingElement>
-                <SettingElement>
-                    <ColorPicker newColors={newColors} setNewColors={setNewColors} />
-                </SettingElement>
-                <SettingElement>
+            <WindowHeader>
+                <Tabbar>
+                    {TabOptions.map((option) =>
+                        <TabOption key={option} active={option === currentTab} onClick={() => setCurrentTab(option)}>{option}</TabOption>
+                    )}
+                </Tabbar>
+                <CloseButton
+                    inverted={true}
+                    onClick={() => hidePopup()}
+                    icon={faTimes}
+                />
+            </WindowHeader>
+
+            <WindowContent>
+                {currentTab === "General" &&
+                    <GeneralSettings
+                        searchSettings={searchSettings}
+                        setSearchSettings={setSearchSettings}
+                        linkGroups={linkGroups}
+                        setLinkGroups={setLinkGroups}
+                    />}
+
+                {currentTab === "Appearance" &&
+                    <DesignSettings
+                        design={design}
+                        setDesign={setDesign}
+                    />}
+
+                {currentTab === "Changelog" && <Changelog />}
+            </WindowContent>
+
+            {currentTab !== "Changelog" &&
+                <WindowFooter>
                     <SettingsButton
                         onClick={() => applyValues()}
-                        text={"Apply"}
-                        icon={faSyncAlt}
+                        text={"Apply Changes"}
+                        icon={faSave}
+                    />
+                    <SettingsButton
+                        onClick={() => {
+                            window.location.reload(false);
+                        }}
+                        text={"Discard Changes"}
+                        icon={faFire}
                     />
                     <SettingsButton
                         onClick={() => {
                             localStorage.clear();
                             window.location.reload(false);
                         }}
-                        text={"Reset"}
+                        text={"Delete All Settings"}
                         icon={faTrash}
                     />
-                </SettingElement>
-            </StyledSettingsContent>
-            <OptionTextArea settingsKey={"link-groups"} onChange={setLinkGroups} initialValue={linkGroups} />
+                </WindowFooter>
+            }
         </StyledSettingsWindow >
     )
 }

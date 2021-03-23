@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-miterlimit:2;">
+    <g id="Fluidity-wave-2" serif:id="Fluidity wave 2">
+        <g id="bg" transform="matrix(3.16475,0,0,2.99275,-7.84674,-7.04927)">
+            <rect x="2.479" y="2.355" width="161.782" height="171.08" style="fill:#ffb4e6;"/>
+        </g>
+        <g id="content" transform="matrix(0.9671,0,0,0.9671,11,12.1989)">
+            <rect x="0" y="-1.24" width="506.669" height="506.669" style="fill:#2e2e2e;"/>
+        </g>
+        <g id="wave" transform="matrix(1.01266,0,0,1.01339,-3.24151,-2.57443)">
+            <path d="M223.513,275.097L222.26,275.821C155.821,314.179 81.885,327.94 11,319.936L11,501L501,501L501,194.317C430.329,186.467 356.634,200.26 290.393,238.505L223.513,275.097Z" style="fill:#ffb4e6;"/>
+        </g>
+        <g id="F" transform="matrix(562.5,0,0,562.5,82.9231,481.029)">
+            <path d="M0.547,-0.633L0.23,-0.633L0.23,-0.386L0.507,-0.386L0.507,-0.314L0.23,-0.314L0.23,-0L0.142,-0L0.142,-0.727L0.558,-0.727L0.558,-0.706L0.547,-0.633Z" style="fill:#ffb4e6;fill-rule:nonzero;stroke:#ffb4e6;stroke-width:0.01px;"/>
+        </g>
+        <g id="F1" serif:id="F" transform="matrix(562.5,0,0,562.5,82.9231,469.029)">
+            <path d="M0.547,-0.633L0.23,-0.633L0.23,-0.386L0.507,-0.386L0.507,-0.314L0.23,-0.314L0.23,-0L0.142,-0L0.142,-0.706L0.558,-0.706L0.547,-0.633Z" style="fill:#2e2e2e;fill-rule:nonzero;stroke:#ffb4e6;stroke-width:0.01px;"/>
+        </g>
+    </g>
+</svg>

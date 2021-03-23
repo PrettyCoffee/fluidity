@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { MaterialPicker, ColorResult } from "react-color";
 
-import { colors } from "../../../data/data";
+import { themes as defaultThemes, colorsType } from "../../../../data/data";
 
 
 const ColorPickerContainer = styled.div`
@@ -41,31 +41,37 @@ const StyledMaterialPicker = styled.div`
     }
 `;
 type props = {
-    newColors: string,
-    setNewColors: (value: string) => void
+    colors: colorsType,
+    setColors: (value: colorsType) => void
 }
 
-export const ColorPicker = ({ newColors, setNewColors }: props) => {
-    const [currentColor, setCurrentColor] = useState(Object.keys(colors)[0]);
-
-    /* I hate this fucking function, go fucking kill yourself */
-    const theFUCKINGcolors = JSON.parse(newColors);
+export const ColorPicker = ({ colors, setColors }: props) => {
+    const [currentColor, setCurrentColor] = useState(Object.keys(defaultThemes[0].colors)[0]);
 
     const handleChange = (result: ColorResult) => {
-        let tmp = { ...theFUCKINGcolors };
+        let tmp = { ...colors };
         tmp[currentColor] = result.hex;
-        setNewColors(JSON.stringify(tmp));
+        setColors(tmp);
     }
 
     return (
         <ColorPickerContainer>
             <div>
                 {Object.keys(colors).map((key) =>
-                    <ColorOption key={key} active={key === currentColor} onClick={() => setCurrentColor(key)}>{key}</ColorOption>
+                    <ColorOption
+                        key={key}
+                        active={key === currentColor}
+                        onClick={() => setCurrentColor(key)}
+                    >
+                        {key}
+                    </ColorOption>
                 )}
             </div>
             <StyledMaterialPicker>
-                <MaterialPicker color={theFUCKINGcolors[currentColor]} onChange={(c) => c && handleChange(c)} />
+                <MaterialPicker
+                    color={colors[currentColor]}
+                    onChange={(color) => color && handleChange(color)}
+                />
             </StyledMaterialPicker>
         </ColorPickerContainer>
     )

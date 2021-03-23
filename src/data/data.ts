@@ -190,31 +190,64 @@ export const searchEngines: dataElem[] = [
 	},
 ];
 
-export type colorsType = {
-	[key: string]: string
+export type Search = {
+	engine: string,
+	fastForward: {
+		[key: string]: string,
+	},
 }
 
-export const colors: colorsType = {
-	"--bg-color": "rgb(46, 46, 46)",
-	"--default-color": "rgb(230, 230, 230)",
-	"--accent-color": "rgb(255, 180, 230)",
-	"--accent-color2": "rgb(180, 255, 230)",
+export const searchSettings: Search = {
+	engine: searchEngines[0].value,
+	fastForward: {
+		"deepl": "https://deepl.com/",
+		"maps": "https://google.de/maps/",
+	}
 }
-/* DarkSouls Theme
-https://i.pinimg.com/originals/16/74/db/1674dbae45cd38f3d3b4c00dc8616bd7.gif
-export const colors: colorsType = {
-	"--bg-color": "#32323C",
-	"--default-color": "#A0A08C",
-	"--accent-color": "#9A6650",
-	"--accent-color2": "#461E28",
+
+export type colorsType = {
+	[key: string]: string
+	"--bg-color": string,
+	"--default-color": string,
+	"--accent-color": string,
+	"--accent-color2": string,
 }
-*/
-/* Pop!OS Theme
-https://oswallpapers.com/wp-content/uploads/2019/04/kate-hazen-unleash-your-robot.jpg
-export const colors: colorsType = {
-	"--bg-color": "#333136",
-	"--default-color": "#2BC5EB",
-	"--accent-color": "#FCD307",
-	"--accent-color2": "#2BC5EB",
+
+export type Theme = {
+	name: string;
+	colors: colorsType;
+	image: string;
 }
-*/
+
+export const themes: Theme[] = [
+	{
+		name: "default",
+		image: pic_1,
+		colors: {
+			"--bg-color": "rgb(46, 46, 46)",
+			"--default-color": "rgb(230, 230, 230)",
+			"--accent-color": "rgb(255, 180, 230)",
+			"--accent-color2": "rgb(180, 255, 230)",
+		},
+	},
+	{
+		name: "Pop!OS",
+		image: "https://oswallpapers.com/wp-content/uploads/2019/04/kate-hazen-unleash-your-robot.jpg",
+		colors: {
+			"--bg-color": "#333136",
+			"--default-color": "#2BC5EB",
+			"--accent-color": "#FCD307",
+			"--accent-color2": "#2BC5EB",
+		},
+	},
+	{
+		name: "Dark Souls",
+		image: "https://i.pinimg.com/originals/16/74/db/1674dbae45cd38f3d3b4c00dc8616bd7.gif",
+		colors: {
+			"--bg-color": "#32323C",
+			"--default-color": "#A0A08C",
+			"--accent-color": "#9A6650",
+			"--accent-color2": "#461E28",
+		},
+	}
+]

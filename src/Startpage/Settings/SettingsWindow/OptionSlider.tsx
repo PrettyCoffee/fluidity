@@ -18,14 +18,14 @@ const SliderWrapper = styled.div`
 type props = {
     values: { label: string, value: string }[],
     onChange: (value: string) => void,
-    settingsKey: string,
+    currentValue: string,
 }
 
-export const OptionSlider = ({ values, onChange, settingsKey }: props) => {
+export const OptionSlider = ({ values, onChange, currentValue }: props) => {
     const [index, setIndex] = useState(0);
     useEffect(() => {
         values.forEach((val, i) => {
-            Settings.getValue(settingsKey) === val.value && i !== index && setIndex(i)
+            currentValue === val.value && i !== index && setIndex(i)
         })
     }, []);
 

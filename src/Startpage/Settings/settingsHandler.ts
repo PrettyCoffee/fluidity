@@ -1,16 +1,73 @@
-type Settings = {
-    [key: string]: any;
-}
+import { linkGroup, Theme, Search as SearchType } from "../../data/data";
 
-const getSettings = () => JSON.parse(localStorage.getItem("settings") || "{}") as Settings;
+export const Search = {
+    get: () => {
+        const lsSearch = localStorage.getItem("search-settings");
+        if (!!lsSearch)
+            return Search.parse(lsSearch);
+        return undefined;
+    },
 
-export const getValue = (key: string) => {
-    const settings = getSettings();
-    return settings[key];
-}
+    set: (searchSettings: SearchType) =>
+        localStorage.setItem("search-settings", JSON.stringify(searchSettings)),
 
-export const setValue = (key: string, value: string) => {
-    const settings = getSettings();
-    settings[key] = value;
-    localStorage.setItem("settings", JSON.stringify(settings));
-}
+    parse: (searchSettings: string) =>
+        JSON.parse(searchSettings) as SearchType,
+};
+
+export const Links = {
+    get: () => {
+        const lsLinks = localStorage.getItem("link-groups");
+        if (!!lsLinks)
+            return Links.parse(lsLinks);
+        return undefined;
+    },
+
+    set: (themes: linkGroup[]) =>
+        localStorage.setItem("link-groups", JSON.stringify(themes)),
+
+    parse: (linkGroups: string) =>
+        JSON.parse(linkGroups) as linkGroup[],
+};
+
+export const Design = {
+    get: () => {
+        const lsDesign = localStorage.getItem("design");
+        if (!!lsDesign)
+            return Themes.parse(lsDesign);
+        return undefined;
+    },
+
+    set: (design: Theme) =>
+        localStorage.setItem("design", JSON.stringify(design)),
+};
+
+
+const setThemes = (themes: Theme[]) =>
+    localStorage.setItem("themes", JSON.stringify(themes));
+
+export const Themes = {
+    get: () => {
+        const lsThemes = localStorage.getItem("themes");
+        if (!!lsThemes)
+            return JSON.parse(lsThemes) as Theme[];
+        return undefined;
+    },
+
+
+    add: (theme: Theme) => {
+        const lsThemes = Themes.get();
+        if (lsThemes)
+            setThemes([...lsThemes, theme])
+        setThemes([theme])
+    },
+
+    remove: (name: string) => {
+        const lsThemes = Themes.get();
+        if (lsThemes)
+            setThemes(lsThemes.filter((theme) => theme.name !== name));
+    },
+
+    parse: (theme: string) =>
+        JSON.parse(theme) as Theme,
+};

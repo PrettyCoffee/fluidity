@@ -34,15 +34,15 @@ const LinkItem = styled.a`
 
 export const LinkContainer = () => {
     const [active, setActive] = useState(0);
-    let linkGroups: linkGroup[];
+    let linkGroups: linkGroup[] = links;
     try {
-        const lsLinks = Settings.getValue("link-groups");
+        const lsLinks = Settings.Links.get();
         if (lsLinks)
-            linkGroups = JSON.parse(lsLinks);
-        else
-            linkGroups = links;
+            linkGroups = lsLinks;
     }
-    catch (e) { linkGroups = [] as linkGroup[] }
+    catch { console.error("Links could not be loaded."); }
+
+    console.log(linkGroups);
 
     return <AccordionContainer>
         {linkGroups.map((group, groupIndex) =>

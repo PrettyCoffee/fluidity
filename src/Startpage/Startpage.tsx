@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-import * as settingsHandler from "./Settings/settingsHandler";
+import { Design as DesignSettings } from "./Settings/settingsHandler";
 
 import { LinkContainer } from "./LinkContainer/LinkContainer"
 import { Searchbar } from "./Searchbar/Searchbar";
@@ -28,7 +28,7 @@ const Image = styled.img`
 `;
 
 export const Startpage = () => {
-    const [img, setImg] = useState(settingsHandler.getValue("image") || images[0].value);
+    const [img, setImg] = useState(DesignSettings.get()?.image || images[0].value);
 
     return (
         <>

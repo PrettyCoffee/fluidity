@@ -10,7 +10,6 @@ const StyledIconButton = styled.button<{ inverted?: boolean }>`
     border: none;
 	opacity: 0.7;
 	cursor: pointer;
-	transition: .3s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,9 +18,9 @@ const StyledIconButton = styled.button<{ inverted?: boolean }>`
         ${({ inverted }) => inverted ?
         `filter: 
             drop-shadow(2px 2px 0 var(--accent-color))
-            drop-shadow(-2px -2px 0 var(--accent-color2))
+            drop-shadow(-2px -2px 0 var(--accent-color))
             drop-shadow(-2px 2px 0 var(--accent-color))
-            drop-shadow(2px -2px 0 var(--accent-color2))`
+            drop-shadow(2px -2px 0 var(--accent-color))`
         : "animation: box-flicker 0.01s ease 0s infinite alternate"};
     }
     :focus{

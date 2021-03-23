@@ -24,12 +24,12 @@ const StyledInput = styled.input`
 `;
 
 type props = {
-    settingsKey: string,
+    currentValue: string,
     onChange: (value: string) => void,
 }
 
-export const OptionTextInput = ({ settingsKey, onChange }: props) => {
-    const [value, setValue] = useState(Settings.getValue(settingsKey) || "");
+export const OptionTextInput = ({ currentValue, onChange }: props) => {
+    const [value, setValue] = useState(currentValue);
 
     return <StyledOptionTextInput>
         <StyledInput
