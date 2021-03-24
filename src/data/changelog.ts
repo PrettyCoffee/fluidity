@@ -6,6 +6,13 @@ export type ChangelogVersion = {
 
 export const changelog: ChangelogVersion[] = [
     {
+        version: "0.2.1",
+        changes: [
+            "Optimized keyboard control",
+            "Restructured settings",
+        ]
+    },
+    {
         version: "0.2.0",
         changes: [
             "Added this changelog",
