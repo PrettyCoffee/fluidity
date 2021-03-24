@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { StyledSettingsContent, SettingElement, SettingsButton } from "../SettingsWindow"
+import { StyledSettingsContent, SettingElement, SettingsButton, SettingsLabel } from "../SettingsWindow"
 import { OptionSlider } from "../OptionSlider"
 import { OptionTextInput } from "../OptionTextInput";
 import { ColorPicker } from "./ColorPicker"
@@ -116,7 +116,7 @@ export const DesignSettings = ({ design, setDesign }: props) => {
     return (
         <>
             <StyledSettingsContent>
-                <p>Theme</p>
+                <SettingsLabel>Theme</SettingsLabel>
                 <SettingElement>
                     <OptionSlider
                         currentValue={""}

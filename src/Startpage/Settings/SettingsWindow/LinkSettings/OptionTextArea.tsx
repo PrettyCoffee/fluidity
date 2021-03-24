@@ -7,14 +7,10 @@ import { linkGroup } from "../../../../data/data";
 
 const StyledOptionTextArea = styled.div<{ error?: string }>`
     position: relative;
-    background-color: var(--bg-color);
     border: 2px solid var(--default-color);
     display:flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 10px 0 10px 20px;
-    width:calc(100% - 460px);
-    height:100%;
+    height: calc(100% - 40px);
     ${({ error }) => error && `
         ::after{
             content: "${error}";

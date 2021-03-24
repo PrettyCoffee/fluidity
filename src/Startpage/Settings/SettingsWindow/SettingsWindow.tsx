@@ -6,9 +6,10 @@ import * as Settings from "../settingsHandler";
 import { links, themes, searchSettings as defaultSearchSettings } from "../../../data/data";
 import { IconButton } from "./IconButton";
 
-import { GeneralSettings } from "./GeneralSettings/GeneralSettings"
-import { DesignSettings } from "./DesignSettings/DesignSettings"
-import { Changelog } from "./Changelog/Changelog"
+import { LinkSettings } from "./LinkSettings/LinkSettings";
+import { SearchSettings } from "./SearchSettings/SearchSettings";
+import { DesignSettings } from "./DesignSettings/DesignSettings";
+import { Changelog } from "./Changelog/Changelog";
 
 const StyledSettingsWindow = styled.div`
     background-color: var(--bg-color);
@@ -58,6 +59,10 @@ export const StyledSettingsContent = styled.div`
     padding-right:20px;
     overflow-y: auto;
 `;
+export const SettingsLabel = styled.p`
+    font-size: 1rem;
+    padding: 10px 0;
+`;
 
 export const SettingElement = styled.div`
     background-color: var(--bg-color);
@@ -96,7 +101,7 @@ const TabOption = styled.button<{ active: boolean }>`
     font-weight: 500;
     transition: .3s;
     height: 100%;
-    min-width: 200px;
+    min-width: 150px;
     display: flex;
     justify-content: center;
     align-items:center;
@@ -115,8 +120,9 @@ type props = {
 }
 
 const TabOptions = [
-    "General",
+    "Links",
     "Appearance",
+    "Searchbar",
     "Changelog",
 ]
 
@@ -169,10 +175,8 @@ export const SettingsWindow = ({ hidePopup }: props) => {
             </WindowHeader>
 
             <WindowContent>
-                {currentTab === "General" &&
-                    <GeneralSettings
-                        searchSettings={searchSettings}
-                        setSearchSettings={setSearchSettings}
+                {currentTab === "Links" &&
+                    <LinkSettings
                         linkGroups={linkGroups}
                         setLinkGroups={setLinkGroups}
                     />}
@@ -181,6 +185,12 @@ export const SettingsWindow = ({ hidePopup }: props) => {
                     <DesignSettings
                         design={design}
                         setDesign={setDesign}
+                    />}
+
+                {currentTab === "Searchbar" &&
+                    <SearchSettings
+                        searchSettings={searchSettings}
+                        setSearchSettings={setSearchSettings}
                     />}
 
                 {currentTab === "Changelog" && <Changelog />}
