@@ -10,7 +10,6 @@ const LinkItem = styled.a`
     position:relative;
     padding: 10px 0 10px 30px;
     font-size:1rem;
-    transition:.5s;
 
     ::before{
         position:absolute;
@@ -25,9 +24,10 @@ const LinkItem = styled.a`
         opacity:.7;
     }
 
-    :hover {
+    :hover, :focus {
         color: var(--accent-color2);
         animation:text-flicker 0.01s ease 0s infinite alternate;
+        outline: none;
     }
 
 `;
@@ -46,9 +46,19 @@ export const LinkContainer = () => {
 
     return <AccordionContainer>
         {linkGroups.map((group, groupIndex) =>
-            <AccordionGroup key={"AccordionGroup" + groupIndex} active={active === groupIndex} title={group.title} onClick={() => setActive(groupIndex)}>
+            <AccordionGroup
+                key={"AccordionGroup" + groupIndex}
+                active={active === groupIndex}
+                title={group.title} onClick={() => setActive(groupIndex)}
+            >
                 {group.links.map((link, linkIndex) =>
-                    <LinkItem key={"LinkItem" + linkIndex} href={link.value}>{link.label}</LinkItem>
+                    <LinkItem
+                        tabIndex={active !== groupIndex ? -1 : undefined}
+                        key={"LinkItem" + linkIndex}
+                        href={link.value}
+                    >
+                        {link.label}
+                    </LinkItem>
                 )}
             </AccordionGroup>
         )}

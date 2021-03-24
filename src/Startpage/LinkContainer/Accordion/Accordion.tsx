@@ -36,9 +36,11 @@ const AccordionContent = styled.div< { width: number }>`
     transition:.3s;
 `;
 
-const AccordionTitleWrapper = styled.div< { active: boolean }>`
+const AccordionTitleWrapper = styled.button< { active: boolean }>`
+    padding: 0;
+    background-color: var(--bg-color);
     border: 4px solid var(--accent-color);
-    height: calc(100% - 8px);
+    height: 100%;
     width: 90px;
     cursor: ${({ active }) =>
         active ? "default" : "pointer"
@@ -57,7 +59,8 @@ const AccordionTitleWrapper = styled.div< { active: boolean }>`
         background-color: var(--accent-color);
         transition:  ${({ active }) => active ? "1s" : ".5s"};
     }
-    :hover{
+    :hover, :focus{
+        outline: none;
         ${({ active }) => !active && `
             ::before {
                 height: 50%;
@@ -73,9 +76,9 @@ const AccordionTitleWrapper = styled.div< { active: boolean }>`
         `}
     }
 
-   > .wave {
+    > .wave {
         /* Waves Source: https://codepen.io/mburakerman/pen/eRZZEv */
-        width: 90px;
+        width: 82px;
         height: 50px;
         position: absolute;
         top: ${({ active }) => active ? "0px" : "350px"};
@@ -91,7 +94,7 @@ const AccordionTitleWrapper = styled.div< { active: boolean }>`
             margin-left: -90px;
             margin-top: -140px;
             border-radius: 37%;
-            background: var(--bg-color);
+            background-color: var(--bg-color);
             animation: wave 12s infinite cubic-bezier(0.71, 0.33, 0.33, 0.68);
         }
         @keyframes wave {
@@ -149,13 +152,13 @@ export const AccordionGroup = ({ active, title, children, onClick }: groupProps)
     }, [active])
 
     return <StyledAccordionGroup ref={elem => parent = elem?.parentElement as HTMLElement}>
-        <AccordionTitleWrapper active={active} onClick={onClick}>
+        <AccordionTitleWrapper active={active} onClick={onClick} tabIndex={active ? -1 : undefined}>
             <div className={"wave"} />
             <AccordionTitle active={active} title={title}>
                 {title}
             </AccordionTitle>
         </AccordionTitleWrapper>
-        <AccordionContent width={contentWidth}>
+        <AccordionContent width={contentWidth} aria-hidden={!active || undefined}>
             {children}
         </AccordionContent>
     </StyledAccordionGroup>
