@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fluidity/precache-manifest.3aecc535098e7f782cf063f4c323785f.js"
+  "/fluidity/precache-manifest.c24d83838f47b591fe445784473856a8.js"
 );
 
 self.addEventListener('message', (event) => {
