@@ -42,8 +42,6 @@ export const LinkContainer = () => {
     }
     catch { console.error("Links could not be loaded."); }
 
-    console.log(linkGroups);
-
     return <AccordionContainer>
         {linkGroups.map((group, groupIndex) =>
             <AccordionGroup

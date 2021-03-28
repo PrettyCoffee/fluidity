@@ -19,15 +19,13 @@ export const SearchSettingsContent = styled.div`
 `;
 
 export const SearchSettings = ({ searchSettings, setSearchSettings }: props) => {
-    let currentEngine = Settings.Search.get()?.engine || searchEngines[0].value;
-
     return (
         <SearchSettingsContent>
             <div>
                 <SettingsLabel>Searchbar</SettingsLabel>
                 <SettingElement>
                     <OptionSlider
-                        currentValue={currentEngine}
+                        currentValue={searchSettings.engine}
                         values={searchEngines}
                         onChange={(engine) => setSearchSettings({ ...searchSettings, engine: engine })}
                     />

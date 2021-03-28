@@ -1,45 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { IconButton } from "./IconButton";
-
-const StyledOptionTextInput = styled.div`
-    background-color: var(--bg-color);
-    border: 2px solid var(--default-color);
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 10px 20px;
-    width:376px;
-`;
 
 const StyledInput = styled.input`
+    border: 2px solid var(--default-color);
+    width: calc(100% - 40px);
+    height: 100%;
+    padding: 10px 20px;
     background-color: var(--bg-color);
     color: var(--default-color);
-    border: none;
-    height:100%;
     outline:none;
-    width: calc(100% - 82px);
+    opacity:0.5;
+    :enabled:hover, :focus{
+        opacity:1;
+    }
+    
 `;
 
-type props = {
-    currentValue: string,
+type props = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> & {
+    value: string,
     onChange: (value: string) => void,
 }
 
-export const OptionTextInput = ({ currentValue, onChange }: props) => {
-    const [value, setValue] = useState(currentValue);
+export const OptionTextInput = ({ onChange, ...props }: props) => {
 
-    return <StyledOptionTextInput>
+    return (
         <StyledInput
             type={"text"}
-            onKeyUp={e => e.which === 13
-                ? onChange(value)
-                : setValue(e.currentTarget.value)
-            }
-            placeholder={"Picture URL"}
-            defaultValue={value}
+            onChange={(e) => onChange(e.currentTarget.value)}
+            {...props}
         />
-        <IconButton icon={faCheck} onClick={(e) => onChange(value)} />
-    </StyledOptionTextInput>
+    )
 }

@@ -43,9 +43,6 @@ export const Design = {
 };
 
 
-const setThemes = (themes: Theme[]) =>
-    localStorage.setItem("themes", JSON.stringify(themes));
-
 export const Themes = {
     get: () => {
         const lsThemes = localStorage.getItem("themes");
@@ -54,18 +51,22 @@ export const Themes = {
         return undefined;
     },
 
+    set: (themes: Theme[]) =>
+        localStorage.setItem("themes", JSON.stringify(themes)),
+
 
     add: (theme: Theme) => {
         const lsThemes = Themes.get();
         if (lsThemes)
-            setThemes([...lsThemes, theme])
-        setThemes([theme])
+            Themes.set([...lsThemes, theme])
+        else
+            Themes.set([theme])
     },
 
     remove: (name: string) => {
         const lsThemes = Themes.get();
         if (lsThemes)
-            setThemes(lsThemes.filter((theme) => theme.name !== name));
+            Themes.set(lsThemes.filter((theme) => theme.name !== name));
     },
 
     parse: (theme: string) =>

@@ -6,7 +6,6 @@ import { themes as defaultThemes, colorsType } from "../../../../data/data";
 
 
 const ColorPickerContainer = styled.div`
-    height: 200px;
     display: flex;
     > div {
         padding: 0 10px;

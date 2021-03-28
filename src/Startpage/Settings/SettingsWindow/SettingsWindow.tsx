@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { faTimes, faTrash, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 
 import * as Settings from "../settingsHandler";
-import { links, themes, searchSettings as defaultSearchSettings } from "../../../data/data";
+import { links, themes as defaultThemes, searchSettings as defaultSearchSettings } from "../../../data/data";
 import { IconButton } from "./IconButton";
 
 import { LinkSettings } from "./LinkSettings/LinkSettings";
@@ -68,9 +68,9 @@ export const SettingElement = styled.div`
     background-color: var(--bg-color);
     position: relative;
     padding: 10px 0px;
-    z-index: 10;
-    display:flex;
-    justify-content: space-between;
+    + {
+        margin-top:15px;
+    }
 `;
 
 const CloseButton = styled(IconButton)`
@@ -127,23 +127,31 @@ const TabOptions = [
 ]
 
 export const SettingsWindow = ({ hidePopup }: props) => {
-    const [design, setDesign] = useState(themes[0]);
+    const [design, setDesign] = useState(defaultThemes[0]);
+    const [themes, setThemes] = useState(defaultThemes);
     const [currentTab, setCurrentTab] = useState(TabOptions[0]);
     const [linkGroups, setLinkGroups] = useState(links);
     const [searchSettings, setSearchSettings] = useState(defaultSearchSettings);
 
+    // load local storage states
     useEffect(() => {
-        try {
-            const lsSearchSettings = Settings.Search.get();
-            if (lsSearchSettings)
-                setSearchSettings(lsSearchSettings);
-        } catch { console.error("Your currently applied search settings appear to be corrupted.") }
-
         try {
             const lsDesign = Settings.Design.get();
             if (lsDesign)
                 setDesign(lsDesign);
         } catch { console.error("Your currently applied design appears to be corrupted.") }
+
+        try {
+            const lsThemes = Settings.Themes.get();
+            if (lsThemes)
+                setThemes(lsThemes);
+        } catch { console.error("Your currently saved themes appear to be corrupted.") }
+
+        try {
+            const lsSearchSettings = Settings.Search.get();
+            if (lsSearchSettings)
+                setSearchSettings(lsSearchSettings);
+        } catch { console.error("Your currently applied search settings appear to be corrupted.") }
 
         try {
             const lsLinkGroups = Settings.Links.get();
@@ -154,6 +162,7 @@ export const SettingsWindow = ({ hidePopup }: props) => {
 
     const applyValues = () => {
         Settings.Design.set(design);
+        Settings.Themes.set(themes);
         Settings.Search.set(searchSettings);
         Settings.Links.set(linkGroups);
         window.location.reload(false);
@@ -185,6 +194,8 @@ export const SettingsWindow = ({ hidePopup }: props) => {
                     <DesignSettings
                         design={design}
                         setDesign={setDesign}
+                        themes={themes}
+                        setThemes={setThemes}
                     />}
 
                 {currentTab === "Searchbar" &&

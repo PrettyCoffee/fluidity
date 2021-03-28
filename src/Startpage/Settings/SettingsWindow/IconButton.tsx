@@ -32,11 +32,11 @@ const StyledIconButton = styled.button<{ inverted?: boolean }>`
     }
 
     > span{
-        margin-right:10px;
+        padding-right:10px;
     }
 `;
 type props =
-    Pick<FontAwesomeIconProps, "icon">
+    Partial<Pick<FontAwesomeIconProps, "icon">>
     & React.ButtonHTMLAttributes<HTMLButtonElement>
     & {
         text?: string;
@@ -47,10 +47,12 @@ type props =
 export const IconButton = ({
     icon,
     text,
+    children,
     ...props
 }: props) => {
     return <StyledIconButton {...props}>
+        {children && children}
         {text && <span>{text}</span>}
-        <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+        {icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}
     </StyledIconButton>
 }

@@ -6,12 +6,14 @@ import { IconButton } from "./IconButton";
 
 const SliderWrapper = styled.div`
     height: 20px;
-    width: 400px;
     display: flex;
     flex-direction: row;
-    align-items: space-between;
-    justify-content: space-between;
     padding:5px 0;
+    > span {
+        min-width: 100px;
+        display: flex;
+        justify-content: center;
+    }
 `;
 
 type props = {
@@ -26,11 +28,11 @@ export const OptionSlider = ({ values, onChange, currentValue }: props) => {
         values.forEach((val, i) => {
             currentValue === val.value && i !== index && setIndex(i)
         })
-    }, []);
+    }, [currentValue, values, index]);
 
     const handleChange = (newIndex: number) => {
         setIndex(newIndex);
-        onChange(values[newIndex].value)
+        onChange(values[newIndex]?.value);
     }
 
     return (
@@ -40,8 +42,9 @@ export const OptionSlider = ({ values, onChange, currentValue }: props) => {
                 onClick={() => { handleChange(index - 1) }}
                 icon={faAngleLeft}
             />
-
-            {values[index].label}
+            <span>
+                {values[index]?.label}
+            </span>
 
             <IconButton
                 disabled={index >= values.length - 1}

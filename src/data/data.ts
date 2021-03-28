@@ -221,13 +221,13 @@ export type Theme = {
 
 export const themes: Theme[] = [
 	{
-		name: "default",
+		name: "DeathAndMilk",
 		image: pic_1,
 		colors: {
-			"--bg-color": "rgb(46, 46, 46)",
-			"--default-color": "rgb(230, 230, 230)",
-			"--accent-color": "rgb(255, 180, 230)",
-			"--accent-color2": "rgb(180, 255, 230)",
+			"--bg-color": "#2E2E2E",
+			"--default-color": "#E6E6E6",
+			"--accent-color": "#FFB4E6",
+			"--accent-color2": "#B4FFE6",
 		},
 	},
 	{
