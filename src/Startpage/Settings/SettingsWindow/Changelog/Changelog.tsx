@@ -21,6 +21,9 @@ const ChangelogWrapper = styled.div`
 `;
 const StyledVersion = styled.div`
     width:600px;
+    > p {
+        margin-bottom: 10px;
+    }
 `;
 
 export const Changelog = () => {
@@ -36,6 +39,7 @@ const Version = ({ version, description, changes }: ChangelogVersion) => {
     return <StyledVersion>
         <h2>v{version}</h2>
         {description && <p>{description}</p>}
+        {changes && <p>Changes:</p>}
         {changes?.map((change) => <li>{change}</li>)}
     </StyledVersion>
 }
