@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/fluidity/static/css/main.2e17a49a.chunk.css",
-    "main.js": "/fluidity/static/js/main.42a0cd0b.chunk.js",
-    "main.js.map": "/fluidity/static/js/main.42a0cd0b.chunk.js.map",
+    "main.js": "/fluidity/static/js/main.3d841ef5.chunk.js",
+    "main.js.map": "/fluidity/static/js/main.3d841ef5.chunk.js.map",
     "runtime-main.js": "/fluidity/static/js/runtime-main.718823d6.js",
     "runtime-main.js.map": "/fluidity/static/js/runtime-main.718823d6.js.map",
-    "static/js/2.ace7d2f4.chunk.js": "/fluidity/static/js/2.ace7d2f4.chunk.js",
-    "static/js/2.ace7d2f4.chunk.js.map": "/fluidity/static/js/2.ace7d2f4.chunk.js.map",
+    "static/js/2.a13a3398.chunk.js": "/fluidity/static/js/2.a13a3398.chunk.js",
+    "static/js/2.a13a3398.chunk.js.map": "/fluidity/static/js/2.a13a3398.chunk.js.map",
     "index.html": "/fluidity/index.html",
-    "precache-manifest.524f3c61357a4ed674bda8b349a4b87e.js": "/fluidity/precache-manifest.524f3c61357a4ed674bda8b349a4b87e.js",
+    "precache-manifest.84d8a786de227d18f65b431795013ea5.js": "/fluidity/precache-manifest.84d8a786de227d18f65b431795013ea5.js",
     "service-worker.js": "/fluidity/service-worker.js",
     "static/css/main.2e17a49a.chunk.css.map": "/fluidity/static/css/main.2e17a49a.chunk.css.map",
-    "static/js/2.ace7d2f4.chunk.js.LICENSE.txt": "/fluidity/static/js/2.ace7d2f4.chunk.js.LICENSE.txt",
+    "static/js/2.a13a3398.chunk.js.LICENSE.txt": "/fluidity/static/js/2.a13a3398.chunk.js.LICENSE.txt",
     "static/media/index.css": "/fluidity/static/media/FiraCode-Regular.3da66ca1.woff",
     "static/media/duckduckgo.svg": "/fluidity/static/media/duckduckgo.e5067b7c.svg",
     "static/media/google.svg": "/fluidity/static/media/google.9ef22081.svg",
@@ -28,8 +28,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.718823d6.js",
-    "static/js/2.ace7d2f4.chunk.js",
+    "static/js/2.a13a3398.chunk.js",
     "static/css/main.2e17a49a.chunk.css",
-    "static/js/main.42a0cd0b.chunk.js"
+    "static/js/main.3d841ef5.chunk.js"
   ]
 }
