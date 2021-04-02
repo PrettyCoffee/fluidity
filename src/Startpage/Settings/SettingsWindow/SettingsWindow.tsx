@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { faTimes, faTrash, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 
 import * as Settings from "../settingsHandler";
-import { links, themes as defaultThemes, searchSettings as defaultSearchSettings } from "../../../data/data";
+import { links as defaultLinks, themes as defaultThemes, searchSettings as defaultSearchSettings } from "../../../data/data";
 import { IconButton } from "./IconButton";
 
 import { LinkSettings } from "./LinkSettings/LinkSettings";
@@ -130,7 +130,7 @@ export const SettingsWindow = ({ hidePopup }: props) => {
     const [design, setDesign] = useState(defaultThemes[0]);
     const [themes, setThemes] = useState(defaultThemes);
     const [currentTab, setCurrentTab] = useState(TabOptions[0]);
-    const [linkGroups, setLinkGroups] = useState(links);
+    const [linkGroups, setLinkGroups] = useState(defaultLinks);
     const [searchSettings, setSearchSettings] = useState(defaultSearchSettings);
 
     // load local storage states

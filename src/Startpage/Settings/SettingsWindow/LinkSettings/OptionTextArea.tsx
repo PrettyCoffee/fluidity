@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 import * as Settings from "../../settingsHandler";
@@ -33,11 +33,6 @@ const StyledTextArea = styled.textarea`
     resize: none;
 `;
 
-type props = {
-    initialValue: linkGroup[],
-    onChange: (value: linkGroup[]) => void,
-}
-
 const placeholder = JSON.stringify(
     [
         {
@@ -59,10 +54,21 @@ const placeholder = JSON.stringify(
         },
     ], null, 4);
 
+type props = {
+    initialValue: linkGroup[],
+    onChange: (value: linkGroup[]) => void,
+}
+
 export const OptionTextArea = ({ initialValue, onChange }: props) => {
     const [error, setError] = useState<string | undefined>(undefined);
+    const [value, setValue] = useState(JSON.stringify(initialValue, null, 4));
+
+    useEffect(() => {
+        setValue(JSON.stringify(initialValue, null, 4));
+    }, [initialValue])
 
     const tryOnChangeEvent = (linkGroups: string) => {
+        setValue(linkGroups);
         try {
             const parsedData = Settings.Links.parse(linkGroups);
             setError(undefined);
@@ -72,9 +78,9 @@ export const OptionTextArea = ({ initialValue, onChange }: props) => {
 
     return <StyledOptionTextArea error={error}>
         <StyledTextArea
-            onKeyUp={e => tryOnChangeEvent(e.currentTarget.value)}
+            onChange={e => tryOnChangeEvent(e.currentTarget.value)}
             placeholder={placeholder}
-            defaultValue={JSON.stringify(initialValue, null, 4)}
+            value={value}
         />
     </StyledOptionTextArea>
 }
