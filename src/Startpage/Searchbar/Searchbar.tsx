@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import * as Settings from "../Settings/settingsHandler";
 
+import { searchSettings as defaultSettings } from "../../data/data";
 import google from "../../data/pictures/google.svg";
 import duckduckgo from "../../data/pictures/duckduckgo.svg";
 import qwant from "../../data/pictures/qwant.svg";
@@ -50,7 +51,8 @@ const SearchIcon = styled.div<{ src: string }>`
 `;
 
 export const Searchbar = () => {
-    let engine: string = Settings.Search.get()?.engine || "duckduckgo.com/";
+    const searchSettings = Settings.Search.get() || defaultSettings;
+    const engine: string = searchSettings?.engine || "duckduckgo.com/";
 
     let searchSymbol = duckduckgo
     if (engine.startsWith("google"))
@@ -59,7 +61,10 @@ export const Searchbar = () => {
         searchSymbol = qwant;
 
     const redirectToSearch = (query: string) => {
-        window.location.href = "https://" + engine + "?q=" + query;
+        if (searchSettings.fastForward[query])
+            window.location.href = searchSettings.fastForward[query];
+        else
+            window.location.href = "https://" + engine + "?q=" + query;
     }
 
     return (
