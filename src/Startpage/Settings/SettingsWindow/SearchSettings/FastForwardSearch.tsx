@@ -119,7 +119,7 @@ export const FastForwardSearch = ({ links, onChange }: FastForwardSearchProps) =
         />
     );
     const tableLeft = [...table].splice(0, table.length / 2 + table.length % 2);
-    const tableRight = [...table].splice(table.length / 2 - table.length % 2);
+    const tableRight = [...table].splice(table.length / 2 + table.length % 2);
 
     return (
         <div>
