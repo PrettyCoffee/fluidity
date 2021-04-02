@@ -190,11 +190,13 @@ export const searchEngines: dataElem[] = [
 	},
 ];
 
+export type FastForwards = {
+	[key: string]: string,
+}
+
 export type Search = {
 	engine: string,
-	fastForward: {
-		[key: string]: string,
-	},
+	fastForward: FastForwards,
 }
 
 export const searchSettings: Search = {
