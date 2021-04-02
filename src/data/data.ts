@@ -202,6 +202,10 @@ export const searchSettings: Search = {
 	fastForward: {
 		"deepl": "https://deepl.com/",
 		"maps": "https://google.de/maps/",
+		"reddit": "https://reddit.com/",
+		"github": "https://github.com/",
+		"gitlab": "https://gitlab.com/",
+		"youtube": "https://youtube.com/",
 	}
 }
 
@@ -249,5 +253,25 @@ export const themes: Theme[] = [
 			"--accent-color": "#9A6650",
 			"--accent-color2": "#461E28",
 		},
+	},
+	{
+		name: "S.E.Lain",
+		image: "https://64.media.tumblr.com/54a945edd2641e20859d6f6537cd7423/tumblr_pwa4bogz4N1qze3hdo2_r1_500.gifv",
+		colors: {
+			"--bg-color": "#0a1a25",
+			"--default-color": "#a6b7ab",
+			"--accent-color": "#94656b",
+			"--accent-color2": "#57182e"
+		}
+	},
+	{
+		name: "Kitties",
+		image: "https://64.media.tumblr.com/5a232d5c0999d02388d78e5c1025f94f/0572516693bf4014-3d/s500x750/0306dc89b657093529aa3ce96e64b9c43572e901.gifv",
+		colors: {
+			"--bg-color": "#495662",
+			"--default-color": "#d1f1fa",
+			"--accent-color": "#80aad4",
+			"--accent-color2": "#e8a9b7"
+		}
 	}
 ]
