@@ -43,6 +43,29 @@ const DesignPreview = styled.div<{ name: string, colors: colorsType }>`
         right: 15px;
         font-size: 0.8rem;
     }
+    @media screen and (max-width: 1400px) {
+        > img {width: 200px; height: 200px;}
+        > div > div {
+            width: 50px;
+            height: 200px;
+            > h2 {font-size: 1rem;}
+            > .wave {
+                width: 50px;
+            }
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        > img {width: 150px; height: 150px;}
+        > div > div {
+            width: 1rem;
+            margin-left: 0.5rem;
+            height: 150px;
+            > h2 {font-size: 0.8rem;}
+            > .wave {
+                display: none;
+            }
+        }
+    }
 `;
 const ImagePreview = styled.img`
     margin: 10px; 

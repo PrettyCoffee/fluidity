@@ -8,7 +8,7 @@ export const changelog: ChangelogVersion[] = [
     {
         version: "0.3.1",
         changes: [
-            "Fixed a bug which prevented the link editor to load the current data",
+            "Fixed a bug which prevented the link editor to load your data",
             "Added some more default data",
         ]
     },

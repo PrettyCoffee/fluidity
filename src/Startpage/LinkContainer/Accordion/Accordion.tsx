@@ -5,8 +5,6 @@ const StyledAccordionContainer = styled.div`
     margin-left: 100px;
     display:flex;
     width:calc(100% - 400px - 100px);
-
-    @media only screen and (max-width: 1730px) {
 `;
 
 export const AccordionContainer = (props: PropsWithChildren<{}>) => {

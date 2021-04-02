@@ -39,7 +39,7 @@ const PopupCover = styled.div`
 `;
 
 const SettingsWrapper = styled.div`
-    position: absolute;
+    position: fixed;
 	top:0px;
     left:0px;
     right:0px;
