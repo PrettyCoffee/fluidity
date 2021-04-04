@@ -1,4 +1,10 @@
-import { linkGroup, Theme, Search as SearchType } from "../../data/data";
+import {
+    linkGroup,
+    Theme, Search as SearchType,
+    links,
+    searchSettings,
+    themes
+} from "../../data/data";
 
 export const Search = {
     get: () => {
@@ -6,6 +12,14 @@ export const Search = {
         if (!!lsSearch)
             return Search.parse(lsSearch);
         return undefined;
+    },
+    getWithFallback: () => {
+        try {
+            return Search.get() || searchSettings;
+        } catch {
+            console.error("Your currently applied search settings appear to be corrupted.");
+            return searchSettings;
+        }
     },
 
     set: (searchSettings: SearchType) =>
@@ -16,11 +30,20 @@ export const Search = {
 };
 
 export const Links = {
+    getRaw: () => localStorage.getItem("link-groups"),
     get: () => {
         const lsLinks = localStorage.getItem("link-groups");
         if (!!lsLinks)
             return Links.parse(lsLinks);
         return undefined;
+    },
+    getWithFallback: () => {
+        try {
+            return Links.get() || links;
+        } catch {
+            console.error("Your currently applied links appear to be corrupted.");
+            return links;
+        }
     },
 
     set: (themes: linkGroup[]) =>
@@ -37,6 +60,14 @@ export const Design = {
             return Themes.parse(lsDesign);
         return undefined;
     },
+    getWithFallback: () => {
+        try {
+            return Design.get() || themes[0];
+        } catch {
+            console.error("Your currently applied design appears to be corrupted.");
+            return themes[0];
+        }
+    },
 
     set: (design: Theme) =>
         localStorage.setItem("design", JSON.stringify(design)),
@@ -49,6 +80,14 @@ export const Themes = {
         if (!!lsThemes)
             return JSON.parse(lsThemes) as Theme[];
         return undefined;
+    },
+    getWithFallback: () => {
+        try {
+            return Themes.get() || themes;
+        } catch {
+            console.error("Your currently applied themes appear to be corrupted.");
+            return themes;
+        }
     },
 
     set: (themes: Theme[]) =>

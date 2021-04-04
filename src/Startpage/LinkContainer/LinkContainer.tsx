@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from "@emotion/styled";
 import { AccordionContainer, AccordionGroup } from './Accordion/Accordion';
 import * as Settings from "../Settings/settingsHandler";
-import { linkGroup, links } from "../../data/data";
 
 const LinkItem = styled.a`
     width: fit-content;
@@ -34,16 +33,10 @@ const LinkItem = styled.a`
 
 export const LinkContainer = () => {
     const [active, setActive] = useState(0);
-    let linkGroups: linkGroup[] = links;
-    try {
-        const lsLinks = Settings.Links.get();
-        if (lsLinks)
-            linkGroups = lsLinks;
-    }
-    catch { console.error("Links could not be loaded."); }
+    let linkGroups = Settings.Links.getWithFallback();
 
     return <AccordionContainer>
-        {linkGroups.map((group, groupIndex) =>
+        {linkGroups?.map((group, groupIndex) =>
             <AccordionGroup
                 key={"AccordionGroup" + groupIndex}
                 active={active === groupIndex}

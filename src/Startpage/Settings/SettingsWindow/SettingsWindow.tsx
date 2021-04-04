@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { faTimes, faTrash, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 
 import * as Settings from "../settingsHandler";
-import { links as defaultLinks, themes as defaultThemes, searchSettings as defaultSearchSettings } from "../../../data/data";
 import { IconButton } from "./IconButton";
 
 import { LinkSettings } from "./LinkSettings/LinkSettings";
@@ -115,50 +114,23 @@ const TabOption = styled.button<{ active: boolean }>`
     }
 `;
 
-type props = {
-    hidePopup: () => void;
-}
-
 const TabOptions = [
     "Links",
     "Appearance",
     "Searchbar",
     "Changelog",
-]
+];
+
+type props = {
+    hidePopup: () => void;
+}
 
 export const SettingsWindow = ({ hidePopup }: props) => {
-    const [design, setDesign] = useState(defaultThemes[0]);
-    const [themes, setThemes] = useState(defaultThemes);
     const [currentTab, setCurrentTab] = useState(TabOptions[0]);
-    const [linkGroups, setLinkGroups] = useState(defaultLinks);
-    const [searchSettings, setSearchSettings] = useState(defaultSearchSettings);
-
-    // load local storage states
-    useEffect(() => {
-        try {
-            const lsDesign = Settings.Design.get();
-            if (lsDesign)
-                setDesign(lsDesign);
-        } catch { console.error("Your currently applied design appears to be corrupted.") }
-
-        try {
-            const lsThemes = Settings.Themes.get();
-            if (lsThemes)
-                setThemes(lsThemes);
-        } catch { console.error("Your currently saved themes appear to be corrupted.") }
-
-        try {
-            const lsSearchSettings = Settings.Search.get();
-            if (lsSearchSettings)
-                setSearchSettings(lsSearchSettings);
-        } catch { console.error("Your currently applied search settings appear to be corrupted.") }
-
-        try {
-            const lsLinkGroups = Settings.Links.get();
-            if (lsLinkGroups)
-                setLinkGroups(lsLinkGroups);
-        } catch { console.error("Your currently applied links appear to be corrupted.") }
-    }, []);
+    const [design, setDesign] = useState(Settings.Design.getWithFallback());
+    const [themes, setThemes] = useState(Settings.Themes.getWithFallback());
+    const [linkGroups, setLinkGroups] = useState(Settings.Links.getWithFallback());
+    const [searchSettings, setSearchSettings] = useState(Settings.Search.getWithFallback());
 
     const applyValues = () => {
         Settings.Design.set(design);
@@ -173,7 +145,13 @@ export const SettingsWindow = ({ hidePopup }: props) => {
             <WindowHeader>
                 <Tabbar>
                     {TabOptions.map((option) =>
-                        <TabOption key={option} active={option === currentTab} onClick={() => setCurrentTab(option)}>{option}</TabOption>
+                        <TabOption
+                            key={option}
+                            active={option === currentTab}
+                            onClick={() => setCurrentTab(option)}
+                        >
+                            {option}
+                        </TabOption>
                     )}
                 </Tabbar>
                 <CloseButton

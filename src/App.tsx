@@ -8,14 +8,11 @@ import * as Settings from "./Startpage/Settings/settingsHandler"
 const App = () => {
 
 	//Apply colors
-	var root = document.documentElement;
-	try {
-		const colors = Settings.Design.get()?.colors;
-		if (colors)
-			Object.keys(colors).forEach(key => {
-				root.style.setProperty(key, colors[key]);
-			});
-	} catch { }
+	const root = document.documentElement;
+	const colors = Settings.Design.getWithFallback().colors;
+	Object.keys(colors).forEach(key => {
+		root.style.setProperty(key, colors[key]);
+	});
 
 	return <Startpage />;
 }

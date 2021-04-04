@@ -28,7 +28,7 @@ const Image = styled.img`
 `;
 
 export const Startpage = () => {
-    const [img, setImg] = useState(DesignSettings.get()?.image || images[0].value);
+    const [img, setImg] = useState(DesignSettings.getWithFallback().image);
 
     return (
         <>
