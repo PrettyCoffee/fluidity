@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 import * as Settings from "../../settingsHandler";
@@ -52,20 +52,44 @@ const placeholder = JSON.stringify(
                 },
             ]
         },
-    ], null, 4);
+    ], null, 2);
 
 type props = {
     initialValue: linkGroup[],
     onChange: (value: linkGroup[]) => void,
 }
 
+const getLinksAsString = (): string => {
+    // try to do usual parse
+    try {
+        const parseLinks = localStorage.getItem("link-groups");
+        if (!!parseLinks)
+            return JSON.stringify(Settings.Links.parse(parseLinks), null, 2);
+    } catch { }
+
+    // try to parse broken json
+    const links = Settings.Links.getRaw();
+    if (links) {
+        return links
+            .replaceAll(':[{', ':[\n      {\n')
+            .replaceAll('[{"', '[\n  {\n"')
+            .replaceAll('}]}]', '}]\n  }\n]')
+            .replaceAll(']},{', '\n  },\n  {\n')
+            .replaceAll('},{', '\n      },\n      {\n')
+            .replaceAll('"}]', '"\n      }\n    ]')
+            .replaceAll('"title":', '    "title":')
+            .replaceAll('"links":', '\n    "links":')
+            .replaceAll('"label":', '        "label":')
+            .replaceAll('"value":', '\n        "value":');
+    }
+
+    //Last possible option
+    return JSON.stringify(Settings.Links.getWithFallback(), null, 2)
+}
+
 export const OptionTextArea = ({ initialValue, onChange }: props) => {
     const [error, setError] = useState<string | undefined>(undefined);
-    const [value, setValue] = useState(JSON.stringify(initialValue, null, 4));
-
-    useEffect(() => {
-        setValue(JSON.stringify(initialValue, null, 4));
-    }, [initialValue])
+    const [value, setValue] = useState(getLinksAsString());
 
     const tryOnChangeEvent = (linkGroups: string) => {
         setValue(linkGroups);

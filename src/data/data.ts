@@ -125,14 +125,6 @@ export const links: linkGroup[] = [
 		title: "Sauce",
 		links: [
 			{
-				label: "JS Library - React",
-				value: "https://reactjs.org/",
-			},
-			{
-				label: "CSS Writing Library - EmotionJS",
-				value: "https://emotion.sh/docs/introduction",
-			},
-			{
 				label: "Pictures - DeathAndMilk",
 				value: "https://www.instagram.com/deathandmilk_/",
 			},
@@ -147,10 +139,6 @@ export const links: linkGroup[] = [
 			{
 				label: "Wave Animation - mburakerman",
 				value: "https://codepen.io/mburakerman/pen/eRZZEv",
-			},
-			{
-				label: "About me t(ಠ益ಠt)",
-				value: "/",
 			},
 			{
 				label: "Da real sauce ԅ(♡﹃♡ԅ)",
@@ -274,6 +262,16 @@ export const themes: Theme[] = [
 			"--default-color": "#d1f1fa",
 			"--accent-color": "#80aad4",
 			"--accent-color2": "#e8a9b7"
+		}
+	},
+	{
+		name: "pretty chill",
+		image: "https://e4p7c9i3.stackpathcdn.com/wp-content/uploads/2019/05/tumblr_oymsnbT0111vjxiz1o1_1280.gif?iv=165",
+		colors: {
+			"--bg-color": "#397d76",
+			"--default-color": "#f1daba",
+			"--accent-color": "#c5bdb5",
+			"--accent-color2": "#93a662"
 		}
 	}
 ]
