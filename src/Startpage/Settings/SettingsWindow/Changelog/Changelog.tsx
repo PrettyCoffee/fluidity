@@ -20,10 +20,13 @@ const ChangelogWrapper = styled.div`
     }
 `;
 const StyledVersion = styled.div`
-    width:600px;
+    width: 600px;
     > p {
         margin-bottom: 10px;
     }
+`;
+const ChangeItem = styled.li`
+    white-space: nowrap;
 `;
 
 export const Changelog = () => {
@@ -40,6 +43,6 @@ const Version = ({ version, description, changes }: ChangelogVersion) => {
         <h2>v{version}</h2>
         {description && <p>{description}</p>}
         {changes && <p>Changes:</p>}
-        {changes?.map((change) => <li key={change}>{change}</li>)}
+        {changes?.map((change) => <ChangeItem>{change}</ChangeItem>)}
     </StyledVersion>
 }

@@ -6,6 +6,13 @@ export type ChangelogVersion = {
 
 export const changelog: ChangelogVersion[] = [
     {
+        version: "0.4.1",
+        changes: [
+            "Enhanced stability of the settings (I am pretty sure about it this time!!!)",
+            "Fixed a bug with the link editor I introduced before",
+        ]
+    },
+    {
         version: "0.4.0",
         changes: [
             "Added fast forward search",
