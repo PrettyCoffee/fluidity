@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 import { faPlus, faMinus, faSave } from '@fortawesome/free-solid-svg-icons'
 
 import { StyledSettingsContent, SettingElement, SettingsButton, SettingsLabel } from "../SettingsWindow"
-import { OptionSlider } from "../OptionSlider"
-import { Dropdown } from "../Dropdown"
-import { OptionTextInput } from "../OptionTextInput";
-import { ColorPicker } from "./ColorPicker"
-import { Theme, colorsType } from '../../../../data/data';
+import { OptionSlider } from "../../../components/OptionSlider"
+import { Dropdown } from "../../../components/Dropdown"
+import { OptionTextInput } from "../../../components/OptionTextInput";
+import { ColorPicker } from "../../../components/ColorPicker"
+import { Theme, colorsType } from '../../../data/data';
 
-import { images } from "../../../../data/data";
+import { images } from "../../../data/data";
 
 const DesignPreview = styled.div<{ name: string, colors: colorsType }>`
     ${({ colors }) => {

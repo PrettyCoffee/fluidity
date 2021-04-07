@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { MaterialPicker, ColorResult } from "react-color";
 
-import { themes as defaultThemes, colorsType } from "../../../../data/data";
+import { themes as defaultThemes, colorsType } from "../data/data";
 
 
 const ColorPickerContainer = styled.div`

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 
-import * as Settings from "../../settingsHandler";
+import * as Settings from "../settingsHandler";
 
-import { linkGroup } from "../../../../data/data";
+import { linkGroup } from "../../../data/data";
 
 const StyledOptionTextArea = styled.div<{ error?: string }>`
     position: relative;

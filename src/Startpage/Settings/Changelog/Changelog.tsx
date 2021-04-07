@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { changelog, ChangelogVersion } from "../../../../data/changelog"
-import logo from "../../../../data/pictures/logo.png"
+import { changelog, ChangelogVersion } from "../../../data/changelog"
+import logo from "../../../data/pictures/logo.png"
 
 const ChangelogWrapper = styled.div`
     width: 100%;

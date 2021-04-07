@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 
 import { SettingsLabel } from "../SettingsWindow"
-import { linkGroup } from "../../../../data/data";
+import { linkGroup } from "../../../data/data";
 import { OptionTextArea } from "./OptionTextArea";
 
 type props = {

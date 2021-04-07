@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { faTimes, faTrash, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 
-import * as Settings from "../settingsHandler";
-import { IconButton } from "./IconButton";
+import * as Settings from "./settingsHandler";
+import { IconButton } from "../../components/IconButton";
 
 import { LinkSettings } from "./LinkSettings/LinkSettings";
 import { SearchSettings } from "./SearchSettings/SearchSettings";

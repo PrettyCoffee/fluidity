@@ -2,8 +2,8 @@ import React from 'react';
 import styled from "@emotion/styled";
 
 import { SettingElement, SettingsLabel } from "../SettingsWindow"
-import { OptionSlider } from "../OptionSlider"
-import { searchEngines, Search } from "../../../../data/data";
+import { OptionSlider } from "../../../components/OptionSlider"
+import { searchEngines, Search } from "../../../data/data";
 import { FastForwardSearch } from "./FastForwardSearch"
 
 type props = {

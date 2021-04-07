@@ -3,7 +3,7 @@ import { faSlidersH } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import styled from '@emotion/styled';
-import { SettingsWindow } from "./SettingsWindow/SettingsWindow";
+import { SettingsWindow } from "./SettingsWindow";
 
 const SettingsPopupToggle = styled.button`
 	position: fixed;

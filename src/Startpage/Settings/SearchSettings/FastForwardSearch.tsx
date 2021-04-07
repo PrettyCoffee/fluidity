@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from "@emotion/styled";
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-import { FastForwards } from "../../../../data/data";
-import { IconButton } from "../IconButton";
-import { OptionTextInput } from "../OptionTextInput";
+import { FastForwards } from "../../../data/data";
+import { IconButton } from "../../../components/IconButton";
+import { OptionTextInput } from "../../../components/OptionTextInput";
 
 const FastForwardWrapper = styled.div`
     margin-bottom: 20px;
