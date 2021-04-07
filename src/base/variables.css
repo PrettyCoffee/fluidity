@@ -4,6 +4,7 @@
 	--accent-color: rgb(255, 180, 230);
 	--accent-color2: rgb(180, 255, 230);
 	--border-radius: 5px;
+	--settings-window-gap: 50px;
 	--text-shadow-downwards: 1px 0px 0 var(--accent-color),
             -1px 0px 0 var(--accent-color),
             0px -1px 0 var(--accent-color),

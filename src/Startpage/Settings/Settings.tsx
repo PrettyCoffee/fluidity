@@ -8,12 +8,12 @@ import { SettingsWindow } from "./SettingsWindow/SettingsWindow";
 const SettingsPopupToggle = styled.button`
 	position: fixed;
 	top: 20px;
-	right:20px;
+	right: 20px;
 	font-size: 20px;
 
 	color: var(--default-color);
-    background-color:transparent;
-    border:none;
+    background-color: transparent;
+    border: none;
 	opacity: 0.3;
 
 	cursor: pointer;
@@ -22,7 +22,7 @@ const SettingsPopupToggle = styled.button`
     :hover{
         opacity: .5;
         color: var(--accent-color2);
-        animation:box-flicker 0.01s ease 0s infinite alternate;
+        animation: box-flicker 0.01s ease 0s infinite alternate;
     }
     :focus{
         outline: none;
@@ -31,24 +31,12 @@ const SettingsPopupToggle = styled.button`
 
 const PopupCover = styled.div`
     position: fixed;
-	left:0px;
-    width:100%;
-    height:100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
     background-color: var(--bg-color);
     opacity: 0.7;
-`;
-
-const SettingsWrapper = styled.div`
-    position: fixed;
-	top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    padding:100px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
 `;
 
 export const Settings = () => {
@@ -62,10 +50,10 @@ export const Settings = () => {
                 <FontAwesomeIcon icon={faSlidersH} />
             </SettingsPopupToggle>
             {showSettings && (
-                <SettingsWrapper>
-                    <PopupCover onClick={() => {/*hidePopup()*/ }} />
+                <>
+                    <PopupCover />
                     <SettingsWindow hidePopup={hidePopup} />
-                </SettingsWrapper>
+                </>
             )}
         </>
     )

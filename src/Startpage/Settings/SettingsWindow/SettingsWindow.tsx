@@ -12,10 +12,14 @@ import { Changelog } from "./Changelog/Changelog";
 
 const StyledSettingsWindow = styled.div`
     background-color: var(--bg-color);
-    position: relative;
+    position: absolute;
+
+    top: var(--settings-window-gap);
+    right: var(--settings-window-gap);
+    bottom: var(--settings-window-gap);
+    left: var(--settings-window-gap);
+
     border: 2px solid var(--default-color);
-    width: 100%;
-    height: 100%;
     padding: 60px 30px 30px 30px;
     box-shadow: 10px 10px 0px var(--accent-color);
 `;
@@ -185,30 +189,28 @@ export const SettingsWindow = ({ hidePopup }: props) => {
                 {currentTab === "Changelog" && <Changelog />}
             </WindowContent>
 
-            {currentTab !== "Changelog" &&
-                <WindowFooter>
-                    <SettingsButton
-                        onClick={() => applyValues()}
-                        text={"Apply Changes"}
-                        icon={faSave}
-                    />
-                    <SettingsButton
-                        onClick={() => {
-                            window.location.reload(false);
-                        }}
-                        text={"Discard Changes"}
-                        icon={faFire}
-                    />
-                    <SettingsButton
-                        onClick={() => {
-                            localStorage.clear();
-                            window.location.reload(false);
-                        }}
-                        text={"Delete All Settings"}
-                        icon={faTrash}
-                    />
-                </WindowFooter>
-            }
+            <WindowFooter>
+                <SettingsButton
+                    onClick={() => applyValues()}
+                    text={"Apply Changes"}
+                    icon={faSave}
+                />
+                <SettingsButton
+                    onClick={() => {
+                        window.location.reload(false);
+                    }}
+                    text={"Discard Changes"}
+                    icon={faFire}
+                />
+                <SettingsButton
+                    onClick={() => {
+                        localStorage.clear();
+                        window.location.reload(false);
+                    }}
+                    text={"Delete All Settings"}
+                    icon={faTrash}
+                />
+            </WindowFooter>
         </StyledSettingsWindow >
     )
 }
