@@ -1,0 +1,53 @@
+[
+  {
+    "title": "code",
+    "links": [
+      {
+        "label": "GitHub",
+        "value": "https://github.com/"
+      },
+      {
+        "label": "Mozilla Docs",
+        "value": "https://developer.mozilla.org/en-US/"
+      }
+    ]
+  },
+  {
+    "title": "reddit",
+    "links": [
+      {
+        "label": "r/OnePiece/",
+        "value": "https://www.reddit.com/r/OnePiece/"
+      },
+      {
+        "label": "r/starwarscanon/",
+        "value": "https://www.reddit.com/r/starwarscanon/"
+      },
+      {
+        "label": "r/unixporn/",
+        "value": "https://www.reddit.com/r/unixporn/"
+      }
+    ]
+  },
+  {
+    "title": "pokémon",
+    "links": [
+      {
+        "label": "Silph Road",
+        "value": "https://thesilphroad.com/"
+      },
+      {
+        "label": "Go Hub",
+        "value": "https://pokemongohub.net/"
+      },
+      {
+        "label": "gamepress pogo",
+        "value": "https://gamepress.gg/pokemongo/"
+      },
+      {
+        "label": "r/TheSilphRoad/",
+        "value": "https://www.reddit.com/r/TheSilphRoad/"
+      }
+    ]
+  }
+]
