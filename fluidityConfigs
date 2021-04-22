@@ -41,12 +41,16 @@
         "value": "https://pokemongohub.net/"
       },
       {
-        "label": "gamepress pogo",
+        "label": "Gamepress Pogo",
         "value": "https://gamepress.gg/pokemongo/"
       },
       {
         "label": "r/TheSilphRoad/",
         "value": "https://www.reddit.com/r/TheSilphRoad/"
+      },
+      {
+        "label": "Dr Lava",
+        "value": "https://twitter.com/DrLavaYT"
       }
     ]
   }
