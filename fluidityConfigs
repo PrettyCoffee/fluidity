@@ -9,7 +9,9 @@
       {
         "label": "Mozilla Docs",
         "value": "https://developer.mozilla.org/en-US/"
-      }
+      },
+        "label": "awesome",
+        "value": "https://github.com/sindresorhus/awesome"
     ]
   },
   {
