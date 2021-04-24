@@ -8,6 +8,13 @@ import { Settings } from "./Settings/Settings";
 
 import { images } from "../data/data"
 
+const Wrapper = styled.div`
+    max-width:1920px;
+    height:100%;
+    margin: auto;
+    position: relative;
+`;
+
 const StyledStartpage = styled.div`
     padding:0px 100px;
     display:flex;
@@ -31,7 +38,7 @@ export const Startpage = () => {
     const [img, setImg] = useState(DesignSettings.getWithFallback().image);
 
     return (
-        <>
+        <Wrapper>
             <StyledStartpage>
                 <div>
                     <Image src={img} onError={() => setImg(images[0].value)} />
@@ -40,6 +47,6 @@ export const Startpage = () => {
             </StyledStartpage>
             <Searchbar />
             <Settings />
-        </>
+        </Wrapper>
     );
 }
