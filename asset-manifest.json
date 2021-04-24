@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/fluidity/static/css/main.2e17a49a.chunk.css",
-    "main.js": "/fluidity/static/js/main.467ef987.chunk.js",
-    "main.js.map": "/fluidity/static/js/main.467ef987.chunk.js.map",
+    "main.css": "/fluidity/static/css/main.0002f482.chunk.css",
+    "main.js": "/fluidity/static/js/main.e3b16b5d.chunk.js",
+    "main.js.map": "/fluidity/static/js/main.e3b16b5d.chunk.js.map",
     "runtime-main.js": "/fluidity/static/js/runtime-main.718823d6.js",
     "runtime-main.js.map": "/fluidity/static/js/runtime-main.718823d6.js.map",
     "static/js/2.a13a3398.chunk.js": "/fluidity/static/js/2.a13a3398.chunk.js",
     "static/js/2.a13a3398.chunk.js.map": "/fluidity/static/js/2.a13a3398.chunk.js.map",
     "index.html": "/fluidity/index.html",
-    "precache-manifest.337984aad7a73be916ba45dbb98f9d3b.js": "/fluidity/precache-manifest.337984aad7a73be916ba45dbb98f9d3b.js",
+    "precache-manifest.7c70728d083abc8fd8e62d1d754ffe1d.js": "/fluidity/precache-manifest.7c70728d083abc8fd8e62d1d754ffe1d.js",
     "service-worker.js": "/fluidity/service-worker.js",
-    "static/css/main.2e17a49a.chunk.css.map": "/fluidity/static/css/main.2e17a49a.chunk.css.map",
+    "static/css/main.0002f482.chunk.css.map": "/fluidity/static/css/main.0002f482.chunk.css.map",
     "static/js/2.a13a3398.chunk.js.LICENSE.txt": "/fluidity/static/js/2.a13a3398.chunk.js.LICENSE.txt",
     "static/media/index.css": "/fluidity/static/media/FiraCode-Regular.3da66ca1.woff",
     "static/media/duckduckgo.svg": "/fluidity/static/media/duckduckgo.e5067b7c.svg",
@@ -29,7 +29,7 @@
   "entrypoints": [
     "static/js/runtime-main.718823d6.js",
     "static/js/2.a13a3398.chunk.js",
-    "static/css/main.2e17a49a.chunk.css",
-    "static/js/main.467ef987.chunk.js"
+    "static/css/main.0002f482.chunk.css",
+    "static/js/main.e3b16b5d.chunk.js"
   ]
 }
