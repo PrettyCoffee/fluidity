@@ -6,6 +6,12 @@ export type ChangelogVersion = {
 
 export const changelog: ChangelogVersion[] = [
     {
+        version: "0.4.3",
+        changes: [
+            "Added middle mouse click to Link Group to open all links in new tabs"
+        ]
+    },
+    {
         version: "0.4.2",
         changes: [
             "Enhanced responsiveness for large screens",
