@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import styled from "@emotion/styled";
 import { AccordionContainer, AccordionGroup } from './Accordion/Accordion';
 import * as Settings from "../Settings/settingsHandler";
+import { dataElem } from '../../data/data';
+
 
 const LinkItem = styled.a`
     width: fit-content;
@@ -31,16 +33,28 @@ const LinkItem = styled.a`
 
 `;
 
+
 export const LinkContainer = () => {
     const [active, setActive] = useState(0);
     let linkGroups = Settings.Links.getWithFallback();
+
+    const middleMouseHandler = (event: MouseEvent, groupIndex: number) => {
+        setActive(groupIndex)
+        if (event.button === 1) {
+            linkGroups[active].links.forEach((link, index) => {
+                window.open(link.value, "_blank")
+            });
+        }
+    }
 
     return <AccordionContainer>
         {linkGroups?.map((group, groupIndex) =>
             <AccordionGroup
                 key={"AccordionGroup" + groupIndex}
                 active={active === groupIndex}
-                title={group.title} onClick={() => setActive(groupIndex)}
+                title={group.title} 
+                onClick={() => setActive(groupIndex)}
+                onMouseDown={(e) => middleMouseHandler(e, groupIndex)}
             >
                 {group.links.map((link, linkIndex) =>
                     <LinkItem

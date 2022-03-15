@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import React, { MouseEvent, PropsWithChildren, useEffect, useState } from 'react';
 import styled from "@emotion/styled";
 
 const StyledAccordionContainer = styled.div`
@@ -130,13 +130,15 @@ const AccordionTitle = styled.h1< { title: string, active: boolean }>`
     letter-spacing: 5px;
 `;
 
+
 type groupProps = PropsWithChildren<{
     active: boolean,
     title: string,
     onClick: () => void,
+    onMouseDown: (e: MouseEvent) => void
 }>
 
-export const AccordionGroup = ({ active, title, children, onClick }: groupProps) => {
+export const AccordionGroup = ({ active, title, children, onClick, onMouseDown }: groupProps) => {
     const [contentWidth, setContentWidth] = useState(active ? 500 : 0);
     let parent: HTMLElement;
     useEffect(() => {
@@ -150,7 +152,7 @@ export const AccordionGroup = ({ active, title, children, onClick }: groupProps)
     }, [active])
 
     return <StyledAccordionGroup ref={elem => parent = elem?.parentElement as HTMLElement}>
-        <AccordionTitleWrapper active={active} onClick={onClick} tabIndex={active ? -1 : undefined}>
+        <AccordionTitleWrapper active={active} onMouseDown={onMouseDown} onClick={onClick} tabIndex={active ? -1 : undefined}>
             <div className={"wave"} />
             <AccordionTitle active={active} title={title}>
                 {title}
