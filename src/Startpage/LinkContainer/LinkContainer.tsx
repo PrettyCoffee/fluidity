@@ -2,8 +2,6 @@ import React, { MouseEvent, useState } from 'react';
 import styled from "@emotion/styled";
 import { AccordionContainer, AccordionGroup } from './Accordion/Accordion';
 import * as Settings from "../Settings/settingsHandler";
-import { dataElem } from '../../data/data';
-
 
 const LinkItem = styled.a`
     width: fit-content;
@@ -32,7 +30,6 @@ const LinkItem = styled.a`
     }
 
 `;
-
 
 export const LinkContainer = () => {
     const [active, setActive] = useState(0);
