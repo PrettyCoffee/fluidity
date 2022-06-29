@@ -38,7 +38,7 @@ export const LinkContainer = () => {
     const middleMouseHandler = (event: MouseEvent, groupIndex: number) => {
         setActive(groupIndex)
         if (event.button === 1) {
-            linkGroups[active].links.forEach((link, index) => {
+            linkGroups[groupIndex].links.forEach((link, index) => {
                 window.open(link.value, "_blank")
             });
         }
