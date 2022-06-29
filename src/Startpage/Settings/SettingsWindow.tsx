@@ -141,7 +141,7 @@ export const SettingsWindow = ({ hidePopup }: props) => {
         Settings.Themes.set(themes);
         Settings.Search.set(searchSettings);
         Settings.Links.set(linkGroups);
-        window.location.reload(false);
+        window.location.reload();
     };
 
     return (
@@ -197,7 +197,7 @@ export const SettingsWindow = ({ hidePopup }: props) => {
                 />
                 <SettingsButton
                     onClick={() => {
-                        window.location.reload(false);
+                        window.location.reload();
                     }}
                     text={"Discard Changes"}
                     icon={faFire}
@@ -205,7 +205,7 @@ export const SettingsWindow = ({ hidePopup }: props) => {
                 <SettingsButton
                     onClick={() => {
                         localStorage.clear();
-                        window.location.reload(false);
+                        window.location.reload();
                     }}
                     text={"Delete All Settings"}
                     icon={faTrash}
