@@ -8,7 +8,8 @@ export const changelog: ChangelogVersion[] = [
     {
         version: "0.4.3",
         changes: [
-            "Added middle mouse click to Link Group to open all links in new tabs"
+            "Added middle mouse click to Link Group to open all links in new tabs",
+            "Added Dockerfile for easier local setup"
         ]
     },
     {

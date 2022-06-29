@@ -28,24 +28,30 @@ If you do not want to rely on my github page, thats totally okay!
 You can set it up locally yourself with the following steps:
 1. Switch into the gh-pages branch
 1. Download / Clone the repository files
-1. Replace all occurences of `/fluidity/` with `./` in the `/index.html` file 
 1. Set it up like explained in [usage](#usage), but instead of the link use the filepath to the `/index.html` file.
 
 If you have a github account you can of course also just fork the repo and create a github page yourself ;)
+
+## Docker setup
+If you are familiar with Docker, you can use the provided docker file which will build the app and deploy it with nginx.
+
+You can use the following commands to deploy a container:
+
+```bash
+# build
+$ docker build ./ -t fluidity
+
+# run
+$ docker run -d --name fluidity -p 8080:80 fluidity
+```
+
+It will be deployed on port 8080. (`http:\\localhost:8080`)
 
 ## Advanced: Changing the code
 Since this project is programmed with React and TypeScript, you will first need to set it up:
 
 0. (Download and install [nodejs](https://nodejs.org/en/) if you dont have it)
 1. Clone the git repository, this time use the main branch
-1. Go into the `/package.json` file and replace 
-    ```
-    "homepage": "https://prettycoffee.github.io/fluidity/"
-    ```
-    with 
-    ```
-    "homepage": "./"
-    ```
 1. Open a terminal in the project folder (If you execute the command `ls` here, there should be a package.json)
 1. Execute `npm i` to install all dependencies
 1. Execute `npm run start` to validate that everything ids working. A browser tab with the URL `http://localhost:3000` and the startpage should open.
