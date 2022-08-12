@@ -176,6 +176,10 @@ export const searchEngines: dataElem[] = [
 		label: "Qwant",
 		value: "qwant.com/",
 	},
+	{
+		label: "Ecosia",
+		value: "ecosia.org/search",
+	},
 ];
 
 export type FastForwards = {

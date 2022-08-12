@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import * as Settings from "../Settings/settingsHandler";
 
+import ecosia from "../../data/pictures/ecosia.svg";
 import google from "../../data/pictures/google.svg";
 import duckduckgo from "../../data/pictures/duckduckgo.svg";
 import qwant from "../../data/pictures/qwant.svg";
@@ -57,6 +58,8 @@ export const Searchbar = () => {
         searchSymbol = google;
     else if (engine.startsWith("qwant"))
         searchSymbol = qwant;
+    else if (engine.startsWith("ecosia"))
+        searchSymbol = ecosia;
 
     const redirectToSearch = (query: string) => {
         if (searchSettings?.fastForward[query])
