@@ -277,5 +277,15 @@ export const themes: Theme[] = [
 			"--accent-color": "#c5bdb5",
 			"--accent-color2": "#93a662"
 		}
+	},
+	{
+		name: "Tartarus",
+		image: "https://64.media.tumblr.com/8de9e4d31a132f7617ecc05e6a0f8807/tumblr_nd048m6QFH1tqptlzo1_500.gifv",
+		colors: {
+			"--bg-color": "#282828",
+			"--default-color": "#D4BE98",
+			"--accent-color": "#7DAEA3",
+			"--accent-color2": "#A9B665"
+		}
 	}
 ]

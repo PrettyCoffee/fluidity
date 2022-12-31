@@ -1,10 +1,36 @@
+import styled from "@emotion/styled";
+import React from "react"
+
+const Link = styled.a`
+    &, :visited {
+        color: var(--accent-color);
+    }
+    :hover {
+        text-decoration: underline;
+    }
+`
+
+const RedditUser = ({ user }: { user: string }) =>
+    <Link href={`https://www.reddit.com/user/${user}`}>u/{user}</Link>
+
 export type ChangelogVersion = {
     version: string,
     description?: string,
-    changes?: string[]
+    changes?: (string | JSX.Element)[]
 };
 
 export const changelog: ChangelogVersion[] = [
+    {
+        version: "0.4.4",
+        changes: [
+            <>
+                Added new theme "Tartarus". Thanks to
+                {" "}<RedditUser user="AllJavi" />{" "}
+                for contributing! <br />
+                (<Link href="https://github.com/AllJavi/dotfiles">fitting linux rice</Link>)
+            </>,
+        ]
+    },
     {
         version: "0.4.3",
         changes: [
