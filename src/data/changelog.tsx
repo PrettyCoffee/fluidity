@@ -21,6 +21,17 @@ export type ChangelogVersion = {
 
 export const changelog: ChangelogVersion[] = [
     {
+        version: "0.5.0",
+        changes: [
+            "Added custom search engines",
+            <>
+                Added some new themes. Thanks to
+                {" "}<RedditUser user="justanotherweirdteen" />{" "}
+                for contributing!
+            </>,
+        ]
+    },
+    {
         version: "0.4.4",
         changes: [
             <>
