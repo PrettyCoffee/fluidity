@@ -287,5 +287,57 @@ export const themes: Theme[] = [
 			"--accent-color": "#7DAEA3",
 			"--accent-color2": "#A9B665"
 		}
+	},
+	{
+		name: "Pastel Aesthetic",
+		image: "https://i.imgur.com/bZHurZn.jpeg",
+		colors: {
+			"--bg-color": "#2E2E2E",
+			"--default-color": "#F3C9CB",
+			"--accent-color": "#6D79BF",
+			"--accent-color2": "#FBECEF"
+		}
+	},
+	{
+		name: "Bohemian",
+		image: "https://i.imgur.com/gcZ6fmk.jpeg",
+		colors: {
+			"--bg-color": "#2E2E2E",
+			"--default-color": "#D6B29A",
+			"--accent-color": "#B35000",
+			"--accent-color2": "#FBECEF",
+		},
+	},
+	{
+		name: "Modern Boho",
+		image: "https://i.imgur.com/HkEcwGl.jpeg",
+		colors: {
+			"--bg-color": "#2E2E2E",
+			"--default-color": "#C66B3C",
+			"--accent-color": "#F6BC7C",
+			"--accent-color2": "#54573C",
+		},
+	
+	},
+	{
+		name: "Gruvbox Inspired Green",
+		image: "https://i.imgur.com/ISjs7cg.jpeg",
+		colors: {
+			"--bg-color": "#2E2E2E",
+			"--default-color": "#CC9A52",
+			"--accent-color": "#647D44",
+			"--accent-color2": "#FCE4B4",
+		},
+	},
+	{
+		name: "Beach",
+		image: "https://i.imgur.com/gcW1jul.jpeg",
+		colors: {
+			"--bg-color": "#2E2E2E",
+			"--default-color": "#E3C9BC",
+			"--accent-color": "#91C6CC",
+			"--accent-color2": "#F0F8FA",
+		},
 	}
 ]
+
