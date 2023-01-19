@@ -5,6 +5,8 @@ import { SettingElement, SettingsLabel } from "../SettingsWindow"
 import { OptionSlider } from "../../../components/OptionSlider"
 import { searchEngines, Search } from "../../../data/data";
 import { FastForwardSearch } from "./FastForwardSearch"
+import { OptionTextInput } from '../../../components/OptionTextInput';
+import { queryToken } from '../../Searchbar/Searchbar';
 
 type props = {
     searchSettings: Search;
@@ -15,16 +17,41 @@ export const SearchSettingsContent = styled.div`
     overflow-y: auto;
 `;
 
+const Flex = styled.div`
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+    gap: 12px;
+` 
+
+const TextInput = styled(OptionTextInput)`
+    width: 100%;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+`
+
 export const SearchSettings = ({ searchSettings, setSearchSettings }: props) => {
+    const setEngine = (engine: string) => {
+        setSearchSettings({ ...searchSettings, engine: engine })
+    }
+
     return (
         <SearchSettingsContent>
             <SettingsLabel>Searchbar</SettingsLabel>
             <SettingElement>
-                <OptionSlider
-                    currentValue={searchSettings.engine}
-                    values={searchEngines}
-                    onChange={(engine) => setSearchSettings({ ...searchSettings, engine: engine })}
-                />
+                <Flex>
+                    <OptionSlider
+                        currentValue={searchSettings.engine}
+                        values={searchEngines}
+                        onChange={setEngine}
+                    />
+                    <TextInput
+                        value={searchSettings.engine}
+                        onChange={setEngine}
+                        placeholder={`Engine url (${queryToken} for query placement)`}
+                    />
+                </Flex>
             </SettingElement>
             <br />
             <SettingsLabel>Fast Forward Search</SettingsLabel>

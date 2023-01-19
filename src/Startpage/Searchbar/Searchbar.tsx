@@ -7,6 +7,8 @@ import google from "../../data/pictures/google.svg";
 import duckduckgo from "../../data/pictures/duckduckgo.svg";
 import qwant from "../../data/pictures/qwant.svg";
 
+export const queryToken = "{{query}}"
+
 const StyledSearchbarContainer = styled.div`
     position: absolute;
     left: calc(100px - 2.9rem - 10px);
@@ -53,24 +55,31 @@ export const Searchbar = () => {
     const searchSettings = Settings.Search.getWithFallback();
     const engine: string = searchSettings?.engine || "duckduckgo.com/";
 
-    let searchSymbol = duckduckgo;
-    if (engine.startsWith("google"))
+    let searchSymbol = undefined;
+    if (engine.includes("duckduckgo"))
+        searchSymbol = duckduckgo;
+    else if (engine.includes("google"))
         searchSymbol = google;
-    else if (engine.startsWith("qwant"))
+    else if (engine.includes("qwant"))
         searchSymbol = qwant;
-    else if (engine.startsWith("ecosia"))
+    else if (engine.includes("ecosia"))
         searchSymbol = ecosia;
 
     const redirectToSearch = (query: string) => {
         if (searchSettings?.fastForward[query])
             window.location.href = searchSettings.fastForward[query];
-        else
-            window.location.href = "https://" + engine + "?q=" + query;
+        else {
+            // for compatibility with old engine urls before fluidity 0.5.0
+            if (!engine.includes(queryToken)) 
+                window.location.href = "https://" + engine + "?q=" + query;
+            else
+                window.location.href = engine.replace(queryToken, query);
+        }
     }
 
     return (
         <StyledSearchbarContainer>
-            <SearchIcon src={searchSymbol} />
+            {searchSymbol && <SearchIcon src={searchSymbol} />}
             <StyledSearchbar
                 placeholder="Always stay clean!"
                 type="input"

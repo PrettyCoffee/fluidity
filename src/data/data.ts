@@ -1,3 +1,4 @@
+import { queryToken } from "../Startpage/Searchbar/Searchbar";
 import pic_1 from "./pictures/pic_1.jpg";
 import pic_2 from "./pictures/pic_2.jpg";
 import pic_3 from "./pictures/pic_3.jpg";
@@ -166,19 +167,19 @@ export const images: dataElem[] = [
 export const searchEngines: dataElem[] = [
 	{
 		label: "DuckDuckGo",
-		value: "duckduckgo.com/",
+		value: `https://duckduckgo.com/?q=${queryToken}`,
 	},
 	{
 		label: "Google",
-		value: "google.com/search",
+		value: `https://www.google.com/search?q=${queryToken}`,
 	},
 	{
 		label: "Qwant",
-		value: "qwant.com/",
+		value: `https://qwant.com/?q=${queryToken}`,
 	},
 	{
 		label: "Ecosia",
-		value: "ecosia.org/search",
+		value: `https://ecosia.org/search/?q=${queryToken}`,
 	},
 ];
 
