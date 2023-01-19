@@ -1,0 +1,108 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:react/recommended",
+    "plugin:react-prefer-function-component/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [ 
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-prefer-function-component",
+    "unused-imports"
+  ],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+
+    "prettier/prettier": [
+      "error",
+      {
+        "tabWidth": 2,
+        "singleQuote": false,
+        "trailingComma": "es5",
+        "semi": false,
+        "bracketSpacing": true,
+        "arrowParens": "avoid",
+        "endOfLine": "auto",
+        "jsxSingleQuote": false
+      }
+    ],
+
+    "react/react-in-jsx-scope": "off",
+    "react/destructuring-assignment": ["error", "always"],
+    "react/function-component-definition": ["error", {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    "react/forbid-elements": ["error", { "forbid": ["iframe"] }],
+    "react/hook-use-state": "error",
+    "react/jsx-boolean-value": ["error", "never"],
+    "react/jsx-max-depth": ["error", { "max": 5 }],
+    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "react/jsx-pascal-case":["error", { "allowNamespace": true }],
+    "react/no-array-index-key": "warn",
+
+    "@typescript-eslint/consistent-type-assertions": ["warn", { "assertionStyle": "never" }],
+
+    "unused-imports/no-unused-imports": "error",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "jsx-a11y/no-onchange": "off", // deprecated rule, will be deleted in a future release
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "no-irregular-whitespace": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
+  },
+  "overrides": [
+    {
+      "files": ["src/@types/**"],
+      "rules": {
+        "check-file/folder-naming-convention": "off"
+      }
+    }
+  ]
+}
