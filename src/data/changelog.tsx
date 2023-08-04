@@ -15,6 +15,9 @@ const Link = styled.a`
 const RedditUser = ({ user }: { user: string }) => (
   <Link href={`https://www.reddit.com/user/${user}`}>u/{user}</Link>
 )
+const GithubUser = ({ user }: { user: string }) => (
+  <Link href={`https://github.com/${user}`}>{user}</Link>
+)
 
 export interface ChangelogVersion {
   version: string
@@ -23,6 +26,15 @@ export interface ChangelogVersion {
 }
 
 export const changelog: ChangelogVersion[] = [
+  {
+    version: "0.6.0",
+    changes: [
+      <>
+        Added catppuccin theme. Thanks to <GithubUser user="AndyReckt" /> for
+        contributing!
+      </>,
+    ],
+  },
   {
     version: "0.5.0",
     changes: [
