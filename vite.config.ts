@@ -5,6 +5,7 @@ import { checker } from "vite-plugin-checker"
 
 export default defineConfig(() => {
   return {
+    base: "./",
     build: {
       outDir: "build",
     },
