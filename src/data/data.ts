@@ -1,4 +1,3 @@
-import { queryToken } from "../Startpage/Searchbar/Searchbar"
 import pic_1 from "./pictures/pic_1.jpg"
 import pic_2 from "./pictures/pic_2.jpg"
 import pic_3 from "./pictures/pic_3.jpg"
@@ -7,6 +6,7 @@ import pic_5 from "./pictures/pic_5.jpg"
 import pic_6 from "./pictures/pic_6.jpg"
 import pic_7 from "./pictures/pic_7.jpg"
 import pic_8 from "./pictures/pic_8.png"
+import { queryToken } from "../Startpage/Searchbar/Searchbar"
 
 export interface dataElem {
   label: string
@@ -220,16 +220,17 @@ export interface Theme {
 }
 
 export const themes: Theme[] = [
- {
+  {
     name: "Catppuccin",
-    image: "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png",
+    image:
+      "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png",
     colors: {
       "--bg-color": "#24273A",
       "--default-color": "#CAD3F5",
       "--accent-color": "#C6A0F6",
       "--accent-color2": "#8AADF4",
-      },
     },
+  },
   {
     name: "DeathAndMilk",
     image: pic_1,

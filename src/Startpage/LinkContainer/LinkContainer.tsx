@@ -2,8 +2,8 @@ import React, { MouseEvent, useState } from "react"
 
 import styled from "@emotion/styled"
 
-import * as Settings from "../Settings/settingsHandler"
 import { AccordionContainer, AccordionGroup } from "./Accordion/Accordion"
+import * as Settings from "../Settings/settingsHandler"
 
 const LinkItem = styled.a`
   width: fit-content;

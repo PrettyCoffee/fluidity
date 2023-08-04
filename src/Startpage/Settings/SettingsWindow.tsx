@@ -8,12 +8,12 @@ import {
   faFire,
 } from "@fortawesome/free-solid-svg-icons"
 
-import { IconButton } from "../../components/IconButton"
 import { Changelog } from "./Changelog/Changelog"
 import { DesignSettings } from "./DesignSettings/DesignSettings"
 import { LinkSettings } from "./LinkSettings/LinkSettings"
 import { SearchSettings } from "./SearchSettings/SearchSettings"
 import * as Settings from "./settingsHandler"
+import { IconButton } from "../../components/IconButton"
 
 const StyledSettingsWindow = styled.div`
   background-color: var(--bg-color);
