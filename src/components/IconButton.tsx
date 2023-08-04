@@ -50,7 +50,7 @@ type props = Partial<Pick<FontAwesomeIconProps, "icon">> &
 export const IconButton = ({ icon, text, children, ...props }: props) => {
   return (
     <StyledIconButton {...props}>
-      {children && children}
+      {children}
       {text && <span>{text}</span>}
       {icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}
     </StyledIconButton>

@@ -93,7 +93,7 @@ const getLinksAsString = (): string => {
   return JSON.stringify(Settings.Links.getWithFallback(), null, 2)
 }
 
-export const OptionTextArea = ({ initialValue, onChange }: props) => {
+export const OptionTextArea = ({ onChange }: props) => {
   const [error, setError] = useState<string | undefined>(undefined)
   const [value, setValue] = useState(getLinksAsString())
 

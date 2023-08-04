@@ -15,7 +15,7 @@ export const Search = {
   },
   getWithFallback: () => {
     try {
-      return Search.get() || searchSettings
+      return Search.get() ?? searchSettings
     } catch {
       console.error(
         "Your currently applied search settings appear to be corrupted."
@@ -38,7 +38,7 @@ export const Themes = {
   },
   getWithFallback: () => {
     try {
-      return Themes.get() || themes
+      return Themes.get() ?? themes
     } catch {
       console.error("Your currently applied themes appear to be corrupted.")
       return themes
@@ -62,16 +62,17 @@ export const Themes = {
   parse: (theme: string) => JSON.parse(theme) as Theme,
 }
 
+const linkGroupsKey = "link-groups"
 export const Links = {
-  getRaw: () => localStorage.getItem("link-groups"),
+  getRaw: () => localStorage.getItem(linkGroupsKey),
   get: () => {
-    const lsLinks = localStorage.getItem("link-groups")
+    const lsLinks = localStorage.getItem(linkGroupsKey)
     if (lsLinks) return Links.parse(lsLinks)
     return undefined
   },
   getWithFallback: () => {
     try {
-      return Links.get() || links
+      return Links.get() ?? links
     } catch {
       console.error("Your currently applied links appear to be corrupted.")
       return links
@@ -79,7 +80,7 @@ export const Links = {
   },
 
   set: (themes: linkGroup[]) =>
-    localStorage.setItem("link-groups", JSON.stringify(themes)),
+    localStorage.setItem(linkGroupsKey, JSON.stringify(themes)),
 
   parse: (linkGroups: string) => JSON.parse(linkGroups) as linkGroup[],
 }
@@ -92,7 +93,7 @@ export const Design = {
   },
   getWithFallback: () => {
     try {
-      return Design.get() || themes[0]
+      return Design.get() ?? themes[0]
     } catch {
       console.error("Your currently applied design appears to be corrupted.")
       return themes[0]

@@ -37,6 +37,7 @@ const Version = ({ version, description, changes }: ChangelogVersion) => {
       {description && <p>{description}</p>}
       {changes && <p>Changes:</p>}
       {changes?.map((change, index) => (
+        // eslint-disable-next-line react/no-array-index-key
         <ChangeItem key={index}>{change}</ChangeItem>
       ))}
     </StyledVersion>
