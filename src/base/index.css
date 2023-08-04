@@ -1,3 +1,6 @@
+@import "./variables.css"; 
+@import "./animations.css"; 
+
 /***********************
  * Idk what this does. *
  *    No touchies.	   *
@@ -71,6 +74,3 @@ a, a:visited, a:active {
     /* not handle on */
     background: transparent;
 }
-
-@import "./variables.css"; 
-@import "./animations.css"; 

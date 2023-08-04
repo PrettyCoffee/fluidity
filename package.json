@@ -7,8 +7,9 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "lint": "eslint ./src --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -26,11 +27,15 @@
     "@types/react": "^18.2.18",
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.4",
     "gh-pages": "^4.0.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.4.8",
+    "vite-plugin-checker": "^0.6.1"
   },
-  "browserslist": ["defaults"],
+  "browserslist": [
+    "defaults"
+  ],
   "eslintConfig": {
     "extends": [
       "@pretty-cozy/eslint-config/base-ts",
