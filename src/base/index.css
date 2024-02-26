@@ -1,5 +1,5 @@
-@import "./variables.css"; 
-@import "./animations.css"; 
+@import "./variables.css";
+@import "./animations.css";
 
 /***********************
  * Idk what this does. *
@@ -35,14 +35,12 @@ body * {
  ********************/
 
 html, body, #root {
-	height:100%;
 	width:100%;
 }
 body {
 	margin: 0;
 	background-color: var(--bg-color);
 	color: var(--default-color);
-	overflow: hidden;
 }
 p {
 	margin:0px

@@ -19,6 +19,13 @@ const StyledSearchbarContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  @media (max-width: 700px) {
+    position: relative;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
 `
 const StyledSearchbar = styled.input`
   width: 100%;
@@ -39,6 +46,9 @@ const StyledSearchbar = styled.input`
   :focus {
     opacity: 1;
     outline: none;
+  }
+  @media (max-width: 700px) {
+    font-size: 20px;
   }
 `
 

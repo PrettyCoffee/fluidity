@@ -12,6 +12,14 @@ const StyledAccordionContainer = styled.div`
   margin-left: 100px;
   display: flex;
   width: calc(100% - 400px - 100px);
+  @media (max-width: 500px) {
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `
 
 export const AccordionContainer = ({ children }: PropsWithChildren) => (
@@ -26,6 +34,12 @@ const StyledAccordionGroup = styled.div`
   border-right: 3px solid var(--default-color);
   :first-of-type {
     border-left: 3px solid var(--default-color);
+    @media (max-width: 500px) {
+      border: 0;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `
 
@@ -35,7 +49,7 @@ const AccordionContent = styled.div<{ width: number }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow: auto;
   transition: 0.3s;
 `
 
@@ -100,6 +114,9 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
       border-radius: 37%;
       background-color: var(--bg-color);
       animation: wave 12s infinite cubic-bezier(0.71, 0.33, 0.33, 0.68);
+      @media (max-width: 700px) {
+        display: ${({ active }) => (active ? "flex" : "none")};
+      }
     }
     @keyframes wave {
       from {
@@ -138,6 +155,9 @@ const AccordionTitle = styled.h1<{ title: string; active: boolean }>`
     active ? "var(--bg-color)" : "var(--default-color)"};
   transition: 0.5s;
   letter-spacing: 5px;
+  @media (max-width: 700px) {
+    transform: rotate(270deg);
+  }
 `
 
 type groupProps = PropsWithChildren<{
