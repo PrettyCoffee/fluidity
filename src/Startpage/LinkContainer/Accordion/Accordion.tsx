@@ -14,8 +14,7 @@ const StyledAccordionContainer = styled.div`
   width: calc(100% - 400px - 100px);
   @media (max-width: 500px) {
     width: 100%;
-    flex-direction: row;
-    transform: rotate(90deg);
+    flex-direction: column;
     margin-left: 0;
     align-items: flex-start;
     justify-content: flex-start;
@@ -40,7 +39,9 @@ const StyledAccordionGroup = styled.div`
   }
   @media (max-width: 500px) {
     width: 100%;
-    height: 390px;
+    height: fit-content;
+    flex-direction: column;
+    box-sizing: border-box;
   }
 `
 
@@ -54,8 +55,8 @@ const AccordionContent = styled.div<{ width: number }>`
   transition: 0.3s;
 
   @media (max-width: 700px) {
-    transform: rotate(270deg);
-    overflow: hidden;
+    height: ${({ width }) => `${width}px`};
+    transition: 0s;
   }
 `
 
@@ -70,6 +71,11 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
   align-items: center;
   justify-content: center;
   opacity: 0.8;
+  @media (max-width: 700px) {
+    width: 100%;
+    height: 80px;
+  }
+
   position: relative;
   ::-webkit-scrollbar {
     width: 5px;
@@ -77,11 +83,16 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
   ::before {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: ${({ active }) => (active ? "390px" : "0")};
     background-color: var(--accent-color);
     transition: ${({ active }) => (active ? "1s" : ".5s")};
+    @media (max-width: 700px) {
+      height: 100%;
+      width: ${({ active }) => (active ? "100%" : "0")};
+      overflow: hidden;
+    }
   }
   :hover,
   :focus {
@@ -111,6 +122,11 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
     top: ${({ active }) => (active ? "0px" : "350px")};
     overflow: hidden;
     transition: ${({ active }) => (active ? "1s" : ".5s")};
+    @media (max-width: 700px) {
+      right: -20px;
+      top: 10px;
+      transform: rotate(90deg);
+    }
     ::before {
       content: "";
       width: 180px;
@@ -165,7 +181,7 @@ const AccordionTitle = styled.h1<{ title: string; active: boolean }>`
   transition: 0.5s;
   letter-spacing: 5px;
   @media (max-width: 700px) {
-    transform: rotate(270deg);
+    transform: rotate(0);
   }
 `
 
