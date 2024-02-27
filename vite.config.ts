@@ -9,6 +9,15 @@ export default defineConfig(() => {
     build: {
       outDir: "build",
     },
+    server: {
+      proxy: {
+        '/search':
+            { target: 'https://ac.duckduckgo.com/ac/?q=',
+              changeOrigin: true,
+              secure: false,
+            },
+      }
+    },
     plugins: [
       react(),
       checker({

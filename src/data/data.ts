@@ -11,6 +11,7 @@ import { queryToken } from "../Startpage/Searchbar/Searchbar"
 export interface dataElem {
   label: string
   value: string
+  active?: boolean
 }
 
 export interface linkGroup {
@@ -224,6 +225,17 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
+    name: "Dark Souls",
+    image:
+      "https://i.pinimg.com/originals/16/74/db/1674dbae45cd38f3d3b4c00dc8616bd7.gif",
+    colors: {
+      "--bg-color": "#32323C",
+      "--default-color": "#A0A08C",
+      "--accent-color": "#9A6650",
+      "--accent-color2": "#461E28",
+    },
+  },
+  {
     name: "Catppuccin",
     image:
       "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png",
@@ -253,17 +265,6 @@ export const themes: Theme[] = [
       "--default-color": "#2BC5EB",
       "--accent-color": "#FCD307",
       "--accent-color2": "#2BC5EB",
-    },
-  },
-  {
-    name: "Dark Souls",
-    image:
-      "https://i.pinimg.com/originals/16/74/db/1674dbae45cd38f3d3b4c00dc8616bd7.gif",
-    colors: {
-      "--bg-color": "#32323C",
-      "--default-color": "#A0A08C",
-      "--accent-color": "#9A6650",
-      "--accent-color2": "#461E28",
     },
   },
   {

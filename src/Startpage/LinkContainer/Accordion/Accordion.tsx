@@ -12,6 +12,13 @@ const StyledAccordionContainer = styled.div`
   margin-left: 100px;
   display: flex;
   width: calc(100% - 400px - 100px);
+  @media (max-width: 500px) {
+    width: 100%;
+    flex-direction: column;
+    margin-left: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `
 
 export const AccordionContainer = ({ children }: PropsWithChildren) => (
@@ -26,6 +33,15 @@ const StyledAccordionGroup = styled.div`
   border-right: 3px solid var(--default-color);
   :first-of-type {
     border-left: 3px solid var(--default-color);
+    @media (max-width: 500px) {
+      border: 0;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+    height: fit-content;
+    flex-direction: column;
+    box-sizing: border-box;
   }
 `
 
@@ -35,8 +51,13 @@ const AccordionContent = styled.div<{ width: number }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow: auto;
   transition: 0.3s;
+
+  @media (max-width: 700px) {
+    height: ${({ width }) => `${width}px`};
+    transition: 0s;
+  }
 `
 
 const AccordionTitleWrapper = styled.button<{ active: boolean }>`
@@ -50,15 +71,28 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
   align-items: center;
   justify-content: center;
   opacity: 0.8;
+  @media (max-width: 700px) {
+    width: 100%;
+    height: 80px;
+  }
+
   position: relative;
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
   ::before {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: ${({ active }) => (active ? "390px" : "0")};
     background-color: var(--accent-color);
     transition: ${({ active }) => (active ? "1s" : ".5s")};
+    @media (max-width: 700px) {
+      height: 100%;
+      width: ${({ active }) => (active ? "100%" : "0")};
+      overflow: hidden;
+    }
   }
   :hover,
   :focus {
@@ -88,6 +122,11 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
     top: ${({ active }) => (active ? "0px" : "350px")};
     overflow: hidden;
     transition: ${({ active }) => (active ? "1s" : ".5s")};
+    @media (max-width: 700px) {
+      right: -20px;
+      top: 10px;
+      transform: rotate(90deg);
+    }
     ::before {
       content: "";
       width: 180px;
@@ -100,6 +139,9 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
       border-radius: 37%;
       background-color: var(--bg-color);
       animation: wave 12s infinite cubic-bezier(0.71, 0.33, 0.33, 0.68);
+      @media (max-width: 700px) {
+        display: ${({ active }) => (active ? "flex" : "none")};
+      }
     }
     @keyframes wave {
       from {
@@ -138,6 +180,9 @@ const AccordionTitle = styled.h1<{ title: string; active: boolean }>`
     active ? "var(--bg-color)" : "var(--default-color)"};
   transition: 0.5s;
   letter-spacing: 5px;
+  @media (max-width: 700px) {
+    transform: rotate(0);
+  }
 `
 
 type groupProps = PropsWithChildren<{

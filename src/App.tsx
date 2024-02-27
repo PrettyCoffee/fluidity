@@ -2,8 +2,11 @@ import React from "react"
 
 import "./base/variables.css"
 
+import { Provider } from "react-redux"
+
 import * as Settings from "./Startpage/Settings/settingsHandler"
 import { Startpage } from "./Startpage/Startpage"
+import { store } from "./store/root.store"
 
 const App = () => {
   //Apply colors
@@ -13,7 +16,11 @@ const App = () => {
     root.style.setProperty(key, colors[key])
   })
 
-  return <Startpage />
+  return (
+    <Provider store={store}>
+      <Startpage />
+    </Provider>
+  )
 }
 
 export default App
