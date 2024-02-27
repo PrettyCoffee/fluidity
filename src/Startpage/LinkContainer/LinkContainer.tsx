@@ -1,16 +1,29 @@
-import React, { MouseEvent, useState } from "react"
+import React, { MouseEvent, useEffect, useState } from "react"
 
 import styled from "@emotion/styled"
+import { useSelector } from "react-redux"
 
 import { AccordionContainer, AccordionGroup } from "./Accordion/Accordion"
+import { RootStore } from "../../store/root.store"
 import * as Settings from "../Settings/settingsHandler"
 
-const LinkItem = styled.a`
+interface LinkItemPropsInterface {
+  active?: boolean
+}
+
+const LinkItem = styled.a<LinkItemPropsInterface>`
   width: fit-content;
   white-space: nowrap;
   position: relative;
   padding: 10px 0 10px 30px;
   font-size: 1rem;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    text-align: left;
+  }
+
+  color: ${props => props.active && "#fff"};
 
   ::before {
     position: absolute;
@@ -24,6 +37,9 @@ const LinkItem = styled.a`
     transition: 0.5s;
     opacity: 0.7;
   }
+  :visited {
+    color: ${props => (props.active ? "#fff" : "inherit")};
+  }
 
   :hover,
   :focus {
@@ -35,7 +51,7 @@ const LinkItem = styled.a`
 
 export const LinkContainer = () => {
   const [active, setActive] = useState(0)
-  const linkGroups = Settings.Links.getWithFallback()
+  const [linkGroups, setLinkGroups] = useState(Settings.Links.getWithFallback())
 
   const middleMouseHandler = (event: MouseEvent, groupIndex: number) => {
     setActive(groupIndex)
@@ -45,6 +61,31 @@ export const LinkContainer = () => {
       })
     }
   }
+  const search = useSelector((state: RootStore) => state.search).search
+
+  const selectSuggested = () => {
+    const newData = [...linkGroups]
+    newData.forEach((group, groupIndex) => {
+      group.links.forEach(link => {
+        if (search === "") link.active = false
+        else {
+          if (
+            link.label.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          ) {
+            link.active = true
+            setActive(groupIndex)
+          } else {
+            link.active = false
+          }
+        }
+      })
+    })
+    setLinkGroups(newData)
+  }
+
+  useEffect(() => {
+    selectSuggested()
+  }, [search])
 
   return (
     <AccordionContainer>
@@ -61,6 +102,7 @@ export const LinkContainer = () => {
               tabIndex={active !== groupIndex ? -1 : undefined}
               key={link.label}
               href={link.value}
+              active={link.active}
             >
               {link.label}
             </LinkItem>

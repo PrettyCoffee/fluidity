@@ -14,8 +14,8 @@ const StyledAccordionContainer = styled.div`
   width: calc(100% - 400px - 100px);
   @media (max-width: 500px) {
     width: 100%;
-    flex-direction: column;
-    overflow: hidden;
+    flex-direction: row;
+    transform: rotate(90deg);
     margin-left: 0;
     align-items: flex-start;
     justify-content: flex-start;
@@ -40,6 +40,7 @@ const StyledAccordionGroup = styled.div`
   }
   @media (max-width: 500px) {
     width: 100%;
+    height: 390px;
   }
 `
 
@@ -51,6 +52,11 @@ const AccordionContent = styled.div<{ width: number }>`
   justify-content: center;
   overflow: auto;
   transition: 0.3s;
+
+  @media (max-width: 700px) {
+    transform: rotate(270deg);
+    overflow: hidden;
+  }
 `
 
 const AccordionTitleWrapper = styled.button<{ active: boolean }>`
@@ -65,6 +71,9 @@ const AccordionTitleWrapper = styled.button<{ active: boolean }>`
   justify-content: center;
   opacity: 0.8;
   position: relative;
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
   ::before {
     content: "";
     position: absolute;
