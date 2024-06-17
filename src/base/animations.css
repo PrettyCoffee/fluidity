@@ -20,7 +20,7 @@
         drop-shadow(10px 10px 0 var(--accent-color));
     }
 } */
-@keyframes circling-shadow-small {
+/* @keyframes circling-shadow-small {
     0%{ filter:
         drop-shadow(-5px -5px 0 var(--accent-color2))
         drop-shadow(5px 5px 0 var(--accent-color));
@@ -41,7 +41,7 @@
         drop-shadow(-5px -5px 0 var(--accent-color2))
         drop-shadow(5px 5px 0 var(--accent-color));
     }
-}
+} */
 
 @keyframes text-flicker {
     from {
