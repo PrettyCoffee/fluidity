@@ -31,7 +31,7 @@ const Image = styled.img`
   padding: 10px;
   object-fit: cover;
 
-  animation: circling-shadow 4s ease 0s infinite normal;
+  // animation: circling-shadow 4s ease 0s infinite normal;
 `
 
 export const Startpage = () => {
