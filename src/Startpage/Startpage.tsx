@@ -27,7 +27,6 @@ const StyledStartpage = styled.div`
 const Image = styled.img`
   height: 400px;
   width: 400px;
-  border: 2px solid var(--default-color);
   padding: 10px;
   object-fit: cover;
 `
