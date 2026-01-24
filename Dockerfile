@@ -1,5 +1,5 @@
 #-- BUILD
-FROM node:18.20.8-alpine AS build
+FROM node:24.13.0-alpine AS build
 
 USER node
 WORKDIR /home/node
