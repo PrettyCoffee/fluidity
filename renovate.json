@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "config:js-app",
+    "abandonments:recommended",
+    "security:minimumReleaseAgeNpm",
+    "group:allNonMajor"
+  ],
+  "major": {
+    "dependencyDashboardApproval": true
+  },
+  "lockFileMaintenance": { "enabled": true }
 }
