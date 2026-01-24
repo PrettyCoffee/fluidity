@@ -14,24 +14,24 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "@fortawesome/free-solid-svg-icons": "6.4.2",
     "@fortawesome/react-fontawesome": "0.2.0",
-    "react": "^18.2.0",
-    "react-color": "^2.19.3",
-    "react-dom": "^18.2.0"
+    "react": "18.2.0",
+    "react-color": "2.19.3",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@pretty-cozy/eslint-config": "^0.2.0",
+    "@pretty-cozy/eslint-config": "0.2.0",
     "@types/react": "18.2.18",
-    "@types/react-color": "^3.0.6",
+    "@types/react-color": "3.0.6",
     "@types/react-dom": "18.2.7",
-    "@vitejs/plugin-react": "^4.0.4",
-    "gh-pages": "^4.0.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.4.8",
-    "vite-plugin-checker": "^0.6.1"
+    "@vitejs/plugin-react": "4.0.4",
+    "gh-pages": "4.0.0",
+    "typescript": "4.9.5",
+    "vite": "4.4.8",
+    "vite-plugin-checker": "0.6.1"
   },
   "browserslist": [
     "defaults"
