@@ -4,7 +4,9 @@
     "config:js-app",
     "abandonments:recommended",
     "security:minimumReleaseAgeNpm",
-    "group:allNonMajor"
+    "group:allNonMajor",
+    "schedule:monthly",
+    ":disableRateLimiting"
   ],
   "major": {
     "dependencyDashboardApproval": true
