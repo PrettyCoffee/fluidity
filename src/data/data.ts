@@ -18,16 +18,6 @@ export interface linkGroup {
   links: dataElem[]
 }
 
-/* eslint-disable */
-/*
-──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀​▀▀▀▀▀▀▌
-───▄▄██▌█ BEEP BEEP
-▄▄▄▌▐██▌█ GAY PORN DELIVERY
-███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄​▄▄▄▄▄▄▌
-▀(@)▀▀▀▀▀▀▀(@)(@)▀▀▀▀▀▀▀▀▀▀▀▀▀​▀▀▀▀(@)▀
-*/
-/* eslint-enable */
-
 export const links: linkGroup[] = [
   {
     title: "Reddit",

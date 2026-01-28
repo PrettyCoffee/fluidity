@@ -1,3 +1,5 @@
+import { ReactNode } from "react"
+
 import styled from "@emotion/styled"
 
 const Link = styled.a`
@@ -20,7 +22,7 @@ const GithubUser = ({ user }: { user: string }) => (
 export interface ChangelogVersion {
   version: string
   description?: string
-  changes?: (string | JSX.Element)[]
+  changes?: (string | ReactNode)[]
 }
 
 export const changelog: ChangelogVersion[] = [

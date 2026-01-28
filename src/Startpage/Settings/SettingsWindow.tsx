@@ -190,14 +190,14 @@ export const SettingsWindow = ({ hidePopup }: props) => {
       <WindowFooter>
         <SettingsButton
           onClick={() => applyValues()}
-          text={"Apply Changes"}
+          text="Apply Changes"
           icon={faSave}
         />
         <SettingsButton
           onClick={() => {
             window.location.reload()
           }}
-          text={"Discard Changes"}
+          text="Discard Changes"
           icon={faFire}
         />
         <SettingsButton
@@ -205,7 +205,7 @@ export const SettingsWindow = ({ hidePopup }: props) => {
             localStorage.clear()
             window.location.reload()
           }}
-          text={"Delete All Settings"}
+          text="Delete All Settings"
           icon={faTrash}
         />
       </WindowFooter>

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons"
 import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
@@ -39,18 +40,16 @@ const StyledIconButton = styled.button<{ inverted?: boolean }>`
     padding-right: 10px;
   }
 `
-type props = Partial<Pick<FontAwesomeIconProps, "icon">> &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    text?: string
-    inverted?: boolean
-  }
-
-export const IconButton = ({ icon, text, children, ...props }: props) => {
-  return (
-    <StyledIconButton {...props}>
-      {children}
-      {text && <span>{text}</span>}
-      {icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}
-    </StyledIconButton>
-  )
+type props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  icon?: IconDefinition
+  text?: string
+  inverted?: boolean
 }
+
+export const IconButton = ({ icon, text, children, ...props }: props) => (
+  <StyledIconButton {...props}>
+    {children}
+    {text && <span>{text}</span>}
+    {icon && <FontAwesomeIcon icon={icon as FontAwesomeIconProps["icon"]} />}
+  </StyledIconButton>
+)

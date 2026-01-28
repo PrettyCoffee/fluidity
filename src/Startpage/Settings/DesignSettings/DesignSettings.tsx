@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+/* eslint-disable react/jsx-max-depth */
+import { useMemo } from "react"
 
 import styled from "@emotion/styled"
 import { faPlus, faMinus, faSave } from "@fortawesome/free-solid-svg-icons"
@@ -16,14 +17,11 @@ import {
 } from "../SettingsWindow"
 
 const DesignPreview = styled.div<{ name: string; colors: colorsType }>`
-  ${({ colors }) => {
-    return (
-      Object.keys(colors)
-        .map((key: string) => key + `:` + colors[key])
-        .toString()
-        .replaceAll(",", ";") + ";"
-    )
-  }}
+  ${({ colors }) =>
+    Object.keys(colors)
+      .map((key: string) => key + `:` + colors[key])
+      .toString()
+      .replaceAll(",", ";") + ";"}
 
   background-color: var(--bg-color);
   display: flex;
@@ -177,14 +175,12 @@ const AccordionPreview = ({
 }: {
   title: string
   colorVar: string
-}) => {
-  return (
-    <StyledAccordionPreview colorVar={colorVar}>
-      <div className={"wave"} />
-      <AccordionPreviewTitle>{title}</AccordionPreviewTitle>
-    </StyledAccordionPreview>
-  )
-}
+}) => (
+  <StyledAccordionPreview colorVar={colorVar}>
+    <div className="wave" />
+    <AccordionPreviewTitle>{title}</AccordionPreviewTitle>
+  </StyledAccordionPreview>
+)
 
 interface props {
   design: Theme
@@ -209,22 +205,15 @@ export const DesignSettings = ({
   themes,
   setThemes,
 }: props) => {
-  const [isNewDesign, setIsNewDesign] = useState(false)
-
   const setName = (name: string) => setDesign({ ...design, name: name })
   const setColors = (colors: colorsType) =>
     setDesign({ ...design, colors: colors })
   const setImage = (image: string) => setDesign({ ...design, image: image })
 
-  // check if design does exist already
-  useEffect(() => {
-    const currTheme = themes.filter(theme => themeEquals(theme, design))
-    if (currTheme.length > 0) {
-      setIsNewDesign(false)
-    } else if (!isNewDesign) {
-      setIsNewDesign(true)
-    }
-  }, [design, themes])
+  const designChanged = useMemo(
+    () => !themes.some(theme => themeEquals(theme, design)),
+    [design, themes]
+  )
 
   const themeChange = (themeName: string) => {
     const newTheme = themes.filter(theme => theme.name === themeName)
@@ -245,9 +234,8 @@ export const DesignSettings = ({
     if (themes.length > 0) themeChange(themes[0]?.name ?? "")
   }
 
-  const themeExists = (themeName: string) => {
-    return themes.filter(theme => theme.name === themeName).length > 0
-  }
+  const themeExists = (themeName: string) =>
+    themes.some(theme => theme.name === themeName)
 
   return (
     <>
@@ -256,22 +244,20 @@ export const DesignSettings = ({
           <SettingsLabel>Theme</SettingsLabel>
 
           <SettingElement>
-            {themes && (
-              <Dropdown
-                value={design.name}
-                items={themes.map(theme => ({
-                  label: theme.name,
-                  value: theme.name,
-                }))}
-                onChange={themeChange}
-              />
-            )}
+            <Dropdown
+              value={design.name}
+              items={themes.map(theme => ({
+                label: theme.name,
+                value: theme.name,
+              }))}
+              onChange={themeChange}
+            />
           </SettingElement>
           <SettingElement>
             <OptionTextInput
               value={design.name}
               onChange={setName}
-              placeholder={"Theme name"}
+              placeholder="Theme name"
             />
           </SettingElement>
 
@@ -281,7 +267,7 @@ export const DesignSettings = ({
             <OptionTextInput
               value={design.image}
               onChange={setImage}
-              placeholder={"Image URL"}
+              placeholder="Image URL"
             />
             <OptionSlider
               currentValue={design.image}
@@ -302,11 +288,11 @@ export const DesignSettings = ({
                 onClick={() => addTheme(design)}
                 text={!themeExists(design.name) ? "Add Theme" : "Save Theme"}
                 icon={!themeExists(design.name) ? faPlus : faSave}
-                disabled={!isNewDesign ? true : undefined}
+                disabled={!designChanged ? true : undefined}
               />
               <SettingsButton
                 onClick={() => removeTheme(design.name)}
-                text={"Remove Theme"}
+                text="Remove Theme"
                 icon={faMinus}
                 disabled={!themeExists(design.name)}
               />
@@ -317,9 +303,9 @@ export const DesignSettings = ({
       <DesignPreview name={design.name} colors={design.colors}>
         <ImagePreview src={design.image} />
         <AccordionPreviewContainer>
-          <AccordionPreview title={"Default"} colorVar={"--default-color"} />
-          <AccordionPreview title={"Accent"} colorVar={"--accent-color"} />
-          <AccordionPreview title={"Accent 2"} colorVar={"--accent-color2"} />
+          <AccordionPreview title="Default" colorVar="--default-color" />
+          <AccordionPreview title="Accent" colorVar="--accent-color" />
+          <AccordionPreview title="Accent 2" colorVar="--accent-color2" />
         </AccordionPreviewContainer>
       </DesignPreview>
     </>

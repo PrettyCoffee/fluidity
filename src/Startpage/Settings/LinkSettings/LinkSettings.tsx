@@ -12,11 +12,9 @@ export const GeneralSettingsContent = styled.div`
   width: 100%;
 `
 
-export const LinkSettings = ({ linkGroups, setLinkGroups }: props) => {
-  return (
-    <GeneralSettingsContent>
-      <SettingsLabel>Links</SettingsLabel>
-      <OptionTextArea onChange={setLinkGroups} initialValue={linkGroups} />
-    </GeneralSettingsContent>
-  )
-}
+export const LinkSettings = ({ linkGroups, setLinkGroups }: props) => (
+  <GeneralSettingsContent>
+    <SettingsLabel>Links</SettingsLabel>
+    <OptionTextArea onChange={setLinkGroups} initialValue={linkGroups} />
+  </GeneralSettingsContent>
+)

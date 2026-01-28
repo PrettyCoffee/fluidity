@@ -173,7 +173,7 @@ export const AccordionGroup = ({
         onClick={onClick}
         tabIndex={active ? -1 : undefined}
       >
-        <div className={"wave"} />
+        <div className="wave" />
         <AccordionTitle active={active} title={title}>
           {title}
         </AccordionTitle>

@@ -21,12 +21,10 @@ type props = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> & {
   className?: string
 }
 
-export const OptionTextInput = ({ onChange, ...props }: props) => {
-  return (
-    <StyledInput
-      type={"text"}
-      onChange={e => onChange(e.currentTarget.value)}
-      {...props}
-    />
-  )
-}
+export const OptionTextInput = ({ onChange, ...props }: props) => (
+  <StyledInput
+    type="text"
+    onChange={e => onChange(e.currentTarget.value)}
+    {...props}
+  />
+)

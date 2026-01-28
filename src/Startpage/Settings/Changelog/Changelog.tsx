@@ -28,28 +28,24 @@ const ChangeItem = styled.li`
   white-space: nowrap;
 `
 
-const Version = ({ version, description, changes }: ChangelogVersion) => {
-  return (
-    <StyledVersion>
-      <h2>v{version}</h2>
-      {description && <p>{description}</p>}
-      {changes && <p>Changes:</p>}
-      {changes?.map((change, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <ChangeItem key={index}>{change}</ChangeItem>
-      ))}
-    </StyledVersion>
-  )
-}
+const Version = ({ version, description, changes }: ChangelogVersion) => (
+  <StyledVersion>
+    <h2>v{version}</h2>
+    {description && <p>{description}</p>}
+    {changes && <p>Changes:</p>}
+    {changes?.map((change, index) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <ChangeItem key={index}>{change}</ChangeItem>
+    ))}
+  </StyledVersion>
+)
 
-export const Changelog = () => {
-  return (
-    <ChangelogWrapper>
-      <img src={logo} alt="logo" />
-      <h1>Changelog</h1>
-      {changelog.map((version: ChangelogVersion) => (
-        <Version key={version.version} {...version} />
-      ))}
-    </ChangelogWrapper>
-  )
-}
+export const Changelog = () => (
+  <ChangelogWrapper>
+    <img src={logo} alt="logo" />
+    <h1>Changelog</h1>
+    {changelog.map((version: ChangelogVersion) => (
+      <Version key={version.version} {...version} />
+    ))}
+  </ChangelogWrapper>
+)

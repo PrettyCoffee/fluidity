@@ -27,7 +27,9 @@ export const OptionSlider = ({ values, onChange, currentValue }: props) => {
   const [index, setIndex] = useState(0)
   useEffect(() => {
     values.forEach((val, i) => {
-      currentValue === val.value && i !== index && setIndex(i)
+      if (currentValue === val.value && i !== index) {
+        setIndex(i)
+      }
     })
   }, [currentValue, values, index])
 

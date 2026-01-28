@@ -78,8 +78,9 @@ export const Searchbar = () => {
       <StyledSearchbar
         placeholder="Always stay clean!"
         type="input"
-        onKeyUp={e => e.which === 13 && redirectToSearch(e.currentTarget.value)}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
+        onKeyUp={e =>
+          e.key === "Enter" && redirectToSearch(e.currentTarget.value)
+        }
         autoFocus
       />
     </StyledSearchbarContainer>

@@ -55,19 +55,17 @@ export const FastForwardItem = ({
   value,
   url,
   deleteThis,
-}: FastForwardItemProps) => {
-  return (
-    <StyledFastForwardItem>
-      <td title={value}>{`"${value}"`}</td>
-      <td>&nbsp;:&nbsp;</td>
-      <td title={url}>{`"${url}"`}</td>
-      <td>
-        {" "}
-        <IconButton icon={faTrash} onClick={() => deleteThis()} />
-      </td>
-    </StyledFastForwardItem>
-  )
-}
+}: FastForwardItemProps) => (
+  <StyledFastForwardItem>
+    <td title={value}>{`"${value}"`}</td>
+    <td>&nbsp;:&nbsp;</td>
+    <td title={url}>{`"${url}"`}</td>
+    <td>
+      {" "}
+      <IconButton icon={faTrash} onClick={() => deleteThis()} />
+    </td>
+  </StyledFastForwardItem>
+)
 
 interface FastForwardAddItemProps {
   add: (value: string, url: string) => void
@@ -83,7 +81,7 @@ export const FastForwardAddItem = ({ add }: FastForwardAddItemProps) => {
         <AddItemTextField
           value={value}
           onChange={newValue => setValue(newValue)}
-          placeholder={"search string"}
+          placeholder="search string"
         />
       </td>
       <td>&nbsp;:&nbsp;</td>
@@ -91,7 +89,7 @@ export const FastForwardAddItem = ({ add }: FastForwardAddItemProps) => {
         <AddItemTextField
           value={url}
           onChange={newUrl => setUrl(newUrl)}
-          placeholder={"destination"}
+          placeholder="destination"
         />
       </td>
       <td>
@@ -149,7 +147,9 @@ export const FastForwardSearch = ({
         </FastForwardTable>
       </FastForwardWrapper>
       <FastForwardTable>
-        <tbody>{<FastForwardAddItem add={addValue} />}</tbody>
+        <tbody>
+          <FastForwardAddItem add={addValue} />
+        </tbody>
       </FastForwardTable>
     </div>
   )

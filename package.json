@@ -10,20 +10,20 @@
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "eslint ./src --ignore-path .gitignore",
+    "lint": "eslint",
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@fortawesome/free-solid-svg-icons": "6.4.2",
-    "@fortawesome/react-fontawesome": "0.2.0",
+    "@fortawesome/free-solid-svg-icons": "7.1.0",
+    "@fortawesome/react-fontawesome": "3.1.1",
     "react": "18.2.0",
     "react-color": "2.19.3",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@pretty-cozy/eslint-config": "0.2.0",
+    "@pretty-cozy/eslint-config": "0.9.0-alpha.3",
     "@types/react": "18.2.18",
     "@types/react-color": "3.0.6",
     "@types/react-dom": "18.2.7",
@@ -34,15 +34,5 @@
   },
   "browserslist": [
     "defaults"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "@pretty-cozy/eslint-config/base-ts",
-      "@pretty-cozy/eslint-config/react"
-    ],
-    "rules": {
-      "check-file/folder-naming-convention": "off",
-      "react/jsx-max-depth": "off"
-    }
-  }
+  ]
 }
