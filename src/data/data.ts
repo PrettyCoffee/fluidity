@@ -197,7 +197,7 @@ export interface Search {
 }
 
 export const searchSettings: Search = {
-  engine: searchEngines[0].value,
+  engine: searchEngines[0]?.value ?? "",
   fastForward: {
     deepl: "https://deepl.com/",
     maps: "https://google.de/maps/",

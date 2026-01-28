@@ -93,10 +93,10 @@ export const Design = {
   },
   getWithFallback: () => {
     try {
-      return Design.get() ?? themes[0]
+      return Design.get() ?? themes[0]!
     } catch {
       console.error("Your currently applied design appears to be corrupted.")
-      return themes[0]
+      return themes[0]!
     }
   },
 

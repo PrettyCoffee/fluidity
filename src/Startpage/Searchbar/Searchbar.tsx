@@ -1,5 +1,3 @@
-import React from "react"
-
 import styled from "@emotion/styled"
 
 import duckduckgo from "../../data/pictures/duckduckgo.svg"

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import styled from "@emotion/styled"
 
@@ -41,7 +41,7 @@ export const Startpage = () => {
     <Wrapper>
       <StyledStartpage>
         <div>
-          <Image src={img} onError={() => setImg(images[0].value)} />
+          <Image src={img} onError={() => setImg(images[0]!.value)} />
         </div>
         <LinkContainer />
       </StyledStartpage>

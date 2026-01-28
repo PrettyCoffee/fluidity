@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import styled from "@emotion/styled"
 import { MaterialPicker, ColorResult } from "react-color"
@@ -46,7 +46,7 @@ interface props {
 
 export const ColorPicker = ({ colors, setColors }: props) => {
   const [currentColor, setCurrentColor] = useState(
-    Object.keys(defaultThemes[0].colors)[0]
+    Object.keys(defaultThemes[0]?.colors ?? {})[0] ?? ""
   )
 
   const handleChange = (result: ColorResult) => {

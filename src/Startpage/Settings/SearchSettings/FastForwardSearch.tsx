@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import styled from "@emotion/styled"
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons"
@@ -131,7 +131,7 @@ export const FastForwardSearch = ({
       <FastForwardItem
         key={value}
         value={value}
-        url={links[value]}
+        url={links[value] ?? ""}
         deleteThis={() => deleteValue(value)}
       />
     ))

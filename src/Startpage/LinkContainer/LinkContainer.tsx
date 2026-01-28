@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from "react"
+import { MouseEvent, useState } from "react"
 
 import styled from "@emotion/styled"
 
@@ -40,7 +40,7 @@ export const LinkContainer = () => {
   const middleMouseHandler = (event: MouseEvent, groupIndex: number) => {
     setActive(groupIndex)
     if (event.button === 1) {
-      linkGroups[groupIndex].links.forEach(link => {
+      linkGroups[groupIndex]?.links.forEach(link => {
         window.open(link.value, "_blank")
       })
     }

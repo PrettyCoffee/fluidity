@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import styled from "@emotion/styled"
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
@@ -77,7 +77,7 @@ export const Dropdown = ({ items, onChange, value }: props) => {
   const [hasBlur, setHasBlur] = useState(false)
   const getCurrentLabel = () => {
     const current = items.filter(item => item.value === value)
-    if (current.length > 0) return current[0].label
+    if (current.length > 0) return current[0]?.label
     else return value
   }
 

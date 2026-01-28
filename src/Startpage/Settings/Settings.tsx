@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import styled from "@emotion/styled"
 import { faSlidersH } from "@fortawesome/free-solid-svg-icons"

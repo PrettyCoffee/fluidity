@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 import styled from "@emotion/styled"
 import { faPlus, faMinus, faSave } from "@fortawesome/free-solid-svg-icons"
@@ -229,7 +229,7 @@ export const DesignSettings = ({
   const themeChange = (themeName: string) => {
     const newTheme = themes.filter(theme => theme.name === themeName)
     if (newTheme.length > 0) {
-      setDesign(newTheme[0])
+      setDesign(newTheme[0]!)
     }
   }
 
@@ -242,11 +242,11 @@ export const DesignSettings = ({
 
   const removeTheme = (themeName: string) => {
     setThemes(themes.filter(theme => theme.name !== themeName))
-    if (themes.length > 0) themeChange(themes[0].name)
+    if (themes.length > 0) themeChange(themes[0]?.name ?? "")
   }
 
   const themeExists = (themeName: string) => {
-    return themes.filter(theme => theme.name === design.name).length > 0
+    return themes.filter(theme => theme.name === themeName).length > 0
   }
 
   return (
