@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import { Changelog } from "./Changelog/Changelog"
+import { ClockSettings } from "./ClockSettings/ClockSettings"
 import { DesignSettings } from "./DesignSettings/DesignSettings"
 import { LinkSettings } from "./LinkSettings/LinkSettings"
 import { SearchSettings } from "./SearchSettings/SearchSettings"
@@ -123,7 +124,7 @@ const TabOption = styled.button<{ active: boolean }>`
   }
 `
 
-const TabOptions = ["Links", "Appearance", "Searchbar", "Changelog"]
+const TabOptions = ["Links", "Appearance", "Searchbar", "Clock", "Changelog"]
 
 interface props {
   hidePopup: () => void
@@ -137,12 +138,16 @@ export const SettingsWindow = ({ hidePopup }: props) => {
   const [searchSettings, setSearchSettings] = useState(
     Settings.Search.getWithFallback()
   )
+  const [clockSettings, setClockSettings] = useState(
+    Settings.Clock.getWithFallback()
+  )
 
   const applyValues = () => {
     Settings.Design.set(design)
     Settings.Themes.set(themes)
     Settings.Search.set(searchSettings)
     Settings.Links.set(linkGroups)
+    Settings.Clock.set(clockSettings)
     window.location.reload()
   }
 
@@ -181,6 +186,13 @@ export const SettingsWindow = ({ hidePopup }: props) => {
           <SearchSettings
             searchSettings={searchSettings}
             setSearchSettings={setSearchSettings}
+          />
+        )}
+
+        {currentTab === "Clock" && (
+          <ClockSettings
+            clockSettings={clockSettings}
+            setClockSettings={setClockSettings}
           />
         )}
 

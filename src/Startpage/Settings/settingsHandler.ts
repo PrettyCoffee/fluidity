@@ -2,10 +2,35 @@ import {
   linkGroup,
   Theme,
   Search as SearchType,
+  ClockSettings as ClockType,
   links,
   searchSettings,
+  clockSettings,
   themes,
 } from "../../data/data"
+
+export const Clock = {
+  get: () => {
+    const lsClock = localStorage.getItem("clock-settings")
+    if (lsClock) return Clock.parse(lsClock)
+    return undefined
+  },
+  getWithFallback: () => {
+    try {
+      return Clock.get() ?? clockSettings
+    } catch {
+      console.error(
+        "Your currently applied clock settings appear to be corrupted."
+      )
+      return clockSettings
+    }
+  },
+
+  set: (clockSettings: ClockType) =>
+    localStorage.setItem("clock-settings", JSON.stringify(clockSettings)),
+
+  parse: (clockSettings: string) => JSON.parse(clockSettings) as ClockType,
+}
 
 export const Search = {
   get: () => {
