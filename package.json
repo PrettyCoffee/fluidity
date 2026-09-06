@@ -14,20 +14,20 @@
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
-    "@fortawesome/free-solid-svg-icons": "7.2.0",
-    "@fortawesome/react-fontawesome": "3.2.0",
-    "react": "19.2.4",
+    "@fortawesome/free-solid-svg-icons": "7.3.1",
+    "@fortawesome/react-fontawesome": "3.5.0",
+    "react": "19.2.8",
     "react-color": "2.19.3",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@pretty-cozy/eslint-config": "0.9.0-alpha.5",
-    "@types/react": "19.2.14",
+    "@pretty-cozy/eslint-config": "0.10.0",
+    "@types/react": "19.2.18",
     "@types/react-color": "3.0.13",
-    "@types/react-dom": "19.2.3",
+    "@types/react-dom": "19.2.7",
     "@vitejs/plugin-react": "5.2.0",
     "typescript": "5.9.3",
-    "vite": "7.3.1"
+    "vite": "7.3.6"
   },
   "browserslist": [
     "defaults"
