@@ -198,6 +198,18 @@ export const searchSettings: Search = {
   },
 }
 
+export interface ClockSettings {
+  showGreeting: boolean
+  showTime: boolean
+  showDate: boolean
+}
+
+export const clockSettings: ClockSettings = {
+  showGreeting: true,
+  showTime: true,
+  showDate: true,
+}
+
 export interface colorsType {
   [key: string]: string
   "--bg-color": string

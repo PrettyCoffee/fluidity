@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import styled from "@emotion/styled"
 
+import { Clock } from "./Clock/Clock"
 import { LinkContainer } from "./LinkContainer/LinkContainer"
 import { Searchbar } from "./Searchbar/Searchbar"
 import { Settings } from "./Settings/Settings"
@@ -47,6 +48,7 @@ export const Startpage = () => {
         <LinkContainer />
       </StyledStartpage>
       <Searchbar />
+      <Clock />
       <Settings />
     </Wrapper>
   )
