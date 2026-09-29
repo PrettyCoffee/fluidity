@@ -3,15 +3,15 @@ import styled from "@emotion/styled"
 const ToggleLabel = styled.label`
   display: flex;
   align-items: center;
+  padding: 5px 0;
   gap: 8px;
   width: max-content;
   color: var(--default-color);
   cursor: pointer;
   user-select: none;
-  transition: 0.3s;
 
   :hover {
-    animation: circling-shadow-small 2s ease 0s infinite normal;
+    animation: text-flicker 0.01s ease 0s infinite alternate;
   }
 `
 
@@ -22,13 +22,13 @@ const ToggleCheckbox = styled.input`
   cursor: pointer;
 `
 
-type props = {
+interface Props {
   label: string
   checked: boolean
   onChange: (checked: boolean) => void
 }
 
-export const ToggleOption = ({ label, checked, onChange }: props) => (
+export const ToggleOption = ({ label, checked, onChange }: Props) => (
   <ToggleLabel>
     <ToggleCheckbox
       type="checkbox"

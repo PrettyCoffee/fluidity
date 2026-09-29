@@ -72,7 +72,7 @@ const greetingFor = (hour: number) => {
 
 export const Clock = () => {
   const [now, setNow] = useState(() => new Date())
-  const [settings] = useState(() => Settings.Clock.getWithFallback())
+  const settings = Settings.Clock.getWithFallback()
 
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000)
