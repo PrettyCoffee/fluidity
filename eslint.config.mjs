@@ -8,8 +8,9 @@ export default defineConfig(
 
   {
     rules: {
-      "checkFile/filename-naming-convention": "off",
-      "checkFile/folder-naming-convention": "off",
+      "@pretty-cozy/file-name-case": "off",
+      "@pretty-cozy/directory-name-case": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
     },
   },
 
