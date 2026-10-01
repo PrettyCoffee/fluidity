@@ -1,9 +1,6 @@
 import styled from "@emotion/styled"
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons"
-import {
-  FontAwesomeIcon,
-  FontAwesomeIconProps,
-} from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const StyledIconButton = styled.button<{ inverted?: boolean }>`
   color: ${({ inverted }) =>
@@ -50,6 +47,6 @@ export const IconButton = ({ icon, text, children, ...props }: props) => (
   <StyledIconButton {...props}>
     {children}
     {text && <span>{text}</span>}
-    {icon && <FontAwesomeIcon icon={icon as FontAwesomeIconProps["icon"]} />}
+    {icon && <FontAwesomeIcon icon={icon} />}
   </StyledIconButton>
 )
